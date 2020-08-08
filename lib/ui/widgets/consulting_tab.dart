@@ -36,6 +36,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
       print(
           'Sending email data: Name: $_name | Email: $_email Subject: | $_subject Message: $_message');
       //  TODO: Send email with form data
+      sendEmail();
 
       showSubmissionDialog();
       clearTextFields();
@@ -81,6 +82,10 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
    }
 
+   sendEmail()  {
+
+   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -96,13 +101,14 @@ class _ConsultingTabState extends State<ConsultingTab> {
                 children: [
                   SizedBox(height: 40.0),
                   Text(
-                    'Need an app built? Want to work with me?',
+                    'Work with me',
                     style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.grey.shade700),
                   ),
                   SizedBox(height: 20.0),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 48),
                     child: TextFormField(
+                      autofillHints: [AutofillHints.name],
                       style: Theme.of(context).textTheme.bodyText1,
                       validator: (String value) {
                         if (value.isEmpty) {
@@ -119,6 +125,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 48),
                     child: TextFormField(
+                      autofillHints: [AutofillHints.email,],
                       style: Theme.of(context).textTheme.bodyText1,
                       validator: (String value) {
                         if (value.isEmpty) {
