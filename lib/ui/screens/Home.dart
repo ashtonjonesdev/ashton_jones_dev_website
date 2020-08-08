@@ -5,7 +5,7 @@ import 'package:ashton_jones_dev_website/ui/widgets/projects_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/thoughts_tab.dart';
 import 'package:flutter/material.dart';
 
-import 'core/data/model/fun_tab.dart';
+import '../../core/data/model/fun_tab.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
 
   static List<Widget> tabWidgets = <Widget>[
     AboutTab(),
@@ -27,6 +28,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Ashton Jones Dev'),
+        centerTitle: true,
+      ),
       body: Center(
         child: tabWidgets.elementAt(_selectedIndex),
       ),

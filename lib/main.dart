@@ -1,5 +1,5 @@
 
-import 'package:ashton_jones_dev_website/Home.dart';
+import 'package:ashton_jones_dev_website/ui/screens/Home.dart';
 import 'package:ashton_jones_dev_website/styles/theme.dart';
 import 'package:flutter/material.dart';
 void main() {
