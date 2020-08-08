@@ -53,7 +53,7 @@ class AboutTab extends StatelessWidget {
                 style: Theme
                     .of(context)
                     .textTheme
-                    .caption,
+                    .caption.copyWith(color: Colors.grey.shade700),
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
               ),
@@ -328,7 +328,7 @@ class AboutTab extends StatelessWidget {
                 style: Theme
                     .of(context)
                     .textTheme
-                    .caption,
+                    .caption.copyWith(color: Colors.grey.shade700),
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
               ),

@@ -124,7 +124,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
                         if (value.isEmpty) {
                           return 'Please enter an email';
                         }
-                        if (!value.contains('@')) {
+                        if (!value.contains('@') || !value.contains('.')) {
                           return 'Please enter a valid email';
                         }
                         return null;

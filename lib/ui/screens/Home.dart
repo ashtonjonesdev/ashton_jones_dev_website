@@ -5,7 +5,7 @@ import 'package:ashton_jones_dev_website/ui/widgets/projects_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/thoughts_tab.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/data/model/fun_tab.dart';
+import '../widgets/fun_tab.dart';
 
 class Home extends StatefulWidget {
   @override
