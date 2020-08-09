@@ -27,8 +27,11 @@ class MediumArticleWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FittedBox(fit: BoxFit.fitWidth, child: Image.asset(_mediumArticle.imageResource)),
+                // TODO: Make sizing of article images consistent
+                FittedBox(fit: BoxFit.fitWidth, child: Image.asset(_mediumArticle.imageResource, height: 300,)),
+                SizedBox(height: 20),
                 Text(_mediumArticle.title, style: Theme.of(context).textTheme.headline4,),
+                SizedBox(height: 10),
                 Text(_mediumArticle.subtitle, textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(fontSize: 20),),
                 SizedBox(height: 20,),
                 Row(
