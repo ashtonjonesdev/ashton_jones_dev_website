@@ -1,6 +1,6 @@
 import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 class ConsultingTab extends StatefulWidget {
   @override
   _ConsultingTabState createState() => _ConsultingTabState();
@@ -82,7 +82,18 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
    }
 
-   sendEmail()  {
+   sendEmail()  async {
+     Map<String, String> headers = new Map();
+     headers["Authorization"] =
+     "Bearer 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 ";
+     headers["Content-Type"] = "application/json";
+
+     var url = 'https://api.sendgrid.com/v3/mail/send';
+     var response = await http.post(url,
+         headers: headers,
+         body: '{"personalizations": [{"to": [{"email": "descxcrs@gmail.com"}]}],"from": {"email": "ashtonjonesdev@gmail.com"},"subject": "Hello, World!","content": [{"type": "text/plain", "value": "Heya!"}]}');
+     print('Response status: ${response.statusCode}');
+     print('Response body: ${response.body}');
 
    }
 
