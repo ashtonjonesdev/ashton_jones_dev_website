@@ -1,12 +1,109 @@
+import 'dart:convert';
+import 'dart:html';
+import 'dart:typed_data';
+
 import 'package:ashton_jones_dev_website/styles/colors.dart';
+import 'package:enough_mail/enough_mail.dart';
+import 'package:enough_mail/message_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:googleapis/drive/v2.dart';
+import 'package:googleapis/gmail/v1.dart';
+import 'package:googleapis_auth/auth.dart';
+import 'package:googleapis_auth/auth_browser.dart' as auth;
 import 'package:http/http.dart' as http;
+
+final identifier = new ClientId(
+    "8151248460-b0fd644l1qmajedshf6bqde93d31ocs2.apps.googleusercontent.com",
+    "nQLDj4Pd10mrjwdIA6UnfBNF");
+
+final scopes = [GmailApi.GmailComposeScope, GmailApi.GmailSendScope];
+
+Future authorizedClient(auth.ClientId id, scopes) {
+  // Initializes the oauth2 browser flow, completes as soon as authentication
+  // calls can be made.
+  return auth.createImplicitBrowserFlow(id, scopes)
+      .then((auth.BrowserOAuth2Flow flow) {
+    // Try getting credentials without user consent.
+    // This will succeed if the user already gave consent for this application.
+    return flow.clientViaUserConsent(immediate: true).catchError((_) {
+      // Ask the user for consent.
+      //
+      // Asking for consent will create a popup window where the user has to
+      // authenticate with Google and authorize this application to access data
+      // on it's behalf.
+      //
+      // Since most browsers block popup windows by default, we can only do this
+      // inside an event handler (if a user action triggered a popup it will
+      // usually not be blocked).
+      // We use the loginButton for this.
+      return flow.clientViaUserConsent(immediate: true);
+    }, test: (error) => error is auth.UserConsentException);
+  });
+}
+
+
 class ConsultingTab extends StatefulWidget {
   @override
   _ConsultingTabState createState() => _ConsultingTabState();
 }
 
 class _ConsultingTabState extends State<ConsultingTab> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+   authorizedClient(identifier, scopes).then((client) {
+
+     // Get the HTTP client from authorized client app credentials
+     var gmailApi = new GmailApi(client);
+
+     // Create a MimeMessage
+     var builder = MessageBuilder.prepareMultipartAlternativeMessage();
+     builder.from = [MailAddress('My name', 'guitarman76940@gmail.com')];
+     builder.to = [MailAddress('Your name', 'ashtonjonesdev@gmail.com')];
+     builder.subject = 'My first message';
+     builder.addTextPlain('hello world.');
+     var mimeMessage = builder.buildMimeMessage();
+
+
+     /// Encode the MimeMessage as base64url string
+     ///
+     /// Encode MimeMessage into bytes
+     ///
+     var bytes = utf8.encode(mimeMessage.toString());
+     var base64Str = base64.encode(bytes);
+
+     /// Create byte stream
+//     var encodedString = utf8.encode(mimeMessage);
+//     var encodedLength = encodedString.length;
+//     var data = ByteData(encodedLength + 4);
+//     data.setUint32(0, encodedLength, Endian.big);
+//     var bytes = data.buffer.asUint8List();
+//     bytes.setRange(4, encodedLength + 4, encodedString);
+//     return bytes;
+
+//
+//     String encodedEmail = Base64Encoder().convert([bytes]);
+//
+//     Message message = Message();
+//
+//     message.raw = mimeMessage.
+     Message message = Message();
+
+     message.raw = base64Str;
+
+     var request = gmailApi.users.messages.send(message, 'ashtonjonesdev@gmail.com').catchError((error) => print(error));
+
+
+
+
+
+
+   });
+
+  }
 
   final _consultingFormKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKeyHome = GlobalKey<ScaffoldState>();
@@ -83,18 +180,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
    }
 
    sendEmail()  async {
-     Map<String, String> headers = new Map();
-     headers["Authorization"] =
-     "Bearer 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 ";
-     headers["Content-Type"] = "application/json";
 
-
-     var url = 'https://api.sendgrid.com/v3/mail/send';
-     var response = await http.post(url,
-         headers: headers,
-         body: '{"personalizations": [{"to": [{"email": "descxcrs@gmail.com"}]}],"from": {"email": "ashtonjonesdev@gmail.com"},"subject": "Hello, World!","content": [{"type": "text/plain", "value": "Heya!"}]}');
-     print('Response status: ${response.statusCode}');
-     print('Response body: ${response.body}');
 
    }
 
