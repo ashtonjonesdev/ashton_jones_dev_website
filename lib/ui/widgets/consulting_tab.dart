@@ -174,47 +174,6 @@ class _ConsultingTabState extends State<ConsultingTab> {
     });
 
 
-
-
-
-
-
-     /// Encode the MimeMessage as base64url string
-     ///
-     /// Encode MimeMessage into bytes
-     ///
-//     var bytes = utf8.encode(mimeMessage.toString());
-//
-//     var messageByteString = MailCodec.base64.encodeData(bytes);
-//
-//     var base64Str = base64.encode(bytes);
-
-     /// Create byte stream
-//     var encodedString = utf8.encode(mimeMessage);
-//     var encodedLength = encodedString.length;
-//     var data = ByteData(encodedLength + 4);
-//     data.setUint32(0, encodedLength, Endian.big);
-//     var bytes = data.buffer.asUint8List();
-//     bytes.setRange(4, encodedLength + 4, encodedString);
-//     return bytes;
-
-//
-//     String encodedEmail = Base64Encoder().convert([bytes]);
-//
-//     Message message = Message();
-//
-//     message.raw = mimeMessage.
-//     Message message = Message();
-//
-//     message.raw = messageByteString;
-//
-//     var request = gmailApi.users.messages.send(message, 'ashtonjonesdev@gmail.com').catchError((error) => print(error));
-//
-//
-//
-//
-//
-//
    }
 
   @override
