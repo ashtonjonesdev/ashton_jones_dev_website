@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ashton-jones-dev-website",
+  "private_key_id": "9cf385141ecab9b43bb35f50d9b910a5c8fc094a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCQjA4DCVyDCa/h\nedxGwESWRuJxXPxnyB/IqokpD7CCIosGLzyiVzcMHo8QpoT72fgk5/fxiZsgG0g9\nMC3MI54tpl8pYtmp1ubrzdtgcGkF1xy7nOl2nb75AYaKP4QpPfDY2QV6lQGzsGKT\nYw7VuLXxu7OQYb7le1zTFslfswFmSbPQoqeun2iGBlh2QDZPanQ2hcn34LC5zuyi\n8cITXf1Pt/AHu2jtaYrHLcalyS3QV9HlHF3xw2SP2MOvh1Om/jFgipjLmTXW2LTb\nMUk3RExB+S5XN6uuA3Yzo86lt/rvfdxeaKuyo+AcNoXE4h20GRnU4iEEAXvvfguG\nCa30j8wnAgMBAAECggEALokYfbvGz90PhazA0PpXWnYpsst360WPjf/xNon5jnvm\nfDA6+hzP+RPhhT/G8nojHGad+WIO0hBWenSHWgBhjVrRqjZL0xT/tQzKQssN1LaD\nZpdGxkxUzj/Ce8GlH830OyvrSqKsMJhps/+hKAdWdCO01JfTaHgF02Ozox6zJaW6\n0aq4o8obKZGoGfNSVv2090AXNypdDhy/mTqseZhYvk++AcRWCCO8us0NhzdZpBjh\nuDetQ0VE58AnlsK8AN4tVhwZJnWVeesVnmp/u8/GX/KD1Co3lfDGOfdkmeKcoU+j\nsf+KwdUlw7D0BSF4rOxyHjK/eEJOCv1HCpXWlkc+qQKBgQDHJQe2NsYqvvOoY1Db\nADM4b5T0rx5pf9up3tPR04Z0RWKcwidARGLzDdYgT9XeucWmVtFwa4rcfhTe6nPu\nbFB3QkhgdEL3wGtLScFjflk0U7QYf6HkWxgpkOhv/zkcMI/Rzl4bYNr9Obwb5rWq\nPijdKp4KrvPZB2uUrUYK6v1yHQKBgQC50KEjvgS3Jpad7WbRQNM7R7kAlbN8Lq5J\nYQVrs8PytpVilwZ4B8b92vp8iIkYkWPJbs1RfbJiRiTSf4YeUKZY9qy18CWHOI0u\n0ylgfsT+I4Yu3WV3iJemiMV1LbGwrTx7mcTvEE11lw+oBo8xqDq4/8VSonEpdgPz\n1VHfiFFkEwKBgDXFqe9pmtiv9trg9lQsGaiDeJUZM/0IqSeVI1zk4MlEcvwg8LhJ\nvu4iLk9LP1SElPn1N1hDsZsX8ErAw8z9Mj0BiMmCmxKKwm3x3GYhF7UpZNe4nt4q\nOrv+hMS5BZK3Ch58uqxp2rfFfyWJhkQRxLbzavk3hGB1wHbE0sTf7s+BAoGBAJwF\nn1h4tFLpNuzyqzOnP/Z1udTQ3n22YKfCrJ+LuUuynerDry3YMfF0DoHEz4Dui6BW\nxlXXupIkHcUWSRJpW9Q1hD3coFZTWNDpg8O/jj9qqr/tLMbazaOLEmna7WnRfIi4\nTBEEWlYTepT2tQPYIz61nQVO2sAalSUHiJCuUNE7AoGACeBN6JS1fBCjyLhT/GNY\nxz/lyvZcAec4nscb3COZfylSVKvb3K8QFuD3xr+Y3QuMgjyVloATmTBadk+qn0a0\nGDjRwoRA0mzX8a+1PnX7CU7FEzJGhIqUQADxDVOfs+CutvGi58vgy2PDfC6DvnCp\nFlbNo4OQ+8qbHfoMMJsV01A=\n-----END PRIVATE KEY-----\n",
+  "client_email": "oauth-service-ashton-jones-dev@ashton-jones-dev-website.iam.gserviceaccount.com",
+  "client_id": "108668530476668501164",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/oauth-service-ashton-jones-dev%40ashton-jones-dev-website.iam.gserviceaccount.com"
+}

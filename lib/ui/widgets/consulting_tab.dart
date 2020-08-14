@@ -10,36 +10,10 @@ import 'package:googleapis/drive/v2.dart';
 import 'package:googleapis/gmail/v1.dart';
 import 'package:googleapis_auth/auth.dart';
 import 'package:googleapis_auth/auth_browser.dart' as auth;
+import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
 
-final identifier = new ClientId(
-    "8151248460-b0fd644l1qmajedshf6bqde93d31ocs2.apps.googleusercontent.com",
-    "nQLDj4Pd10mrjwdIA6UnfBNF");
 
-final scopes = [GmailApi.GmailComposeScope, GmailApi.GmailSendScope];
-
-Future authorizedClient(auth.ClientId id, scopes) {
-  // Initializes the oauth2 browser flow, completes as soon as authentication
-  // calls can be made.
-  return auth.createImplicitBrowserFlow(id, scopes)
-      .then((auth.BrowserOAuth2Flow flow) {
-    // Try getting credentials without user consent.
-    // This will succeed if the user already gave consent for this application.
-    return flow.clientViaUserConsent(immediate: true).catchError((_) {
-      // Ask the user for consent.
-      //
-      // Asking for consent will create a popup window where the user has to
-      // authenticate with Google and authorize this application to access data
-      // on it's behalf.
-      //
-      // Since most browsers block popup windows by default, we can only do this
-      // inside an event handler (if a user action triggered a popup it will
-      // usually not be blocked).
-      // We use the loginButton for this.
-      return flow.clientViaUserConsent(immediate: true);
-    }, test: (error) => error is auth.UserConsentException);
-  });
-}
 
 
 class ConsultingTab extends StatefulWidget {
@@ -49,59 +23,41 @@ class ConsultingTab extends StatefulWidget {
 
 class _ConsultingTabState extends State<ConsultingTab> {
 
+  // Service account credentials
+  final _credentials = new ServiceAccountCredentials.fromJson(r'''
+{
+  "type": "service_account",
+  "project_id": "ashton-jones-dev-website",
+  "private_key_id": "9cf385141ecab9b43bb35f50d9b910a5c8fc094a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCQjA4DCVyDCa/h\nedxGwESWRuJxXPxnyB/IqokpD7CCIosGLzyiVzcMHo8QpoT72fgk5/fxiZsgG0g9\nMC3MI54tpl8pYtmp1ubrzdtgcGkF1xy7nOl2nb75AYaKP4QpPfDY2QV6lQGzsGKT\nYw7VuLXxu7OQYb7le1zTFslfswFmSbPQoqeun2iGBlh2QDZPanQ2hcn34LC5zuyi\n8cITXf1Pt/AHu2jtaYrHLcalyS3QV9HlHF3xw2SP2MOvh1Om/jFgipjLmTXW2LTb\nMUk3RExB+S5XN6uuA3Yzo86lt/rvfdxeaKuyo+AcNoXE4h20GRnU4iEEAXvvfguG\nCa30j8wnAgMBAAECggEALokYfbvGz90PhazA0PpXWnYpsst360WPjf/xNon5jnvm\nfDA6+hzP+RPhhT/G8nojHGad+WIO0hBWenSHWgBhjVrRqjZL0xT/tQzKQssN1LaD\nZpdGxkxUzj/Ce8GlH830OyvrSqKsMJhps/+hKAdWdCO01JfTaHgF02Ozox6zJaW6\n0aq4o8obKZGoGfNSVv2090AXNypdDhy/mTqseZhYvk++AcRWCCO8us0NhzdZpBjh\nuDetQ0VE58AnlsK8AN4tVhwZJnWVeesVnmp/u8/GX/KD1Co3lfDGOfdkmeKcoU+j\nsf+KwdUlw7D0BSF4rOxyHjK/eEJOCv1HCpXWlkc+qQKBgQDHJQe2NsYqvvOoY1Db\nADM4b5T0rx5pf9up3tPR04Z0RWKcwidARGLzDdYgT9XeucWmVtFwa4rcfhTe6nPu\nbFB3QkhgdEL3wGtLScFjflk0U7QYf6HkWxgpkOhv/zkcMI/Rzl4bYNr9Obwb5rWq\nPijdKp4KrvPZB2uUrUYK6v1yHQKBgQC50KEjvgS3Jpad7WbRQNM7R7kAlbN8Lq5J\nYQVrs8PytpVilwZ4B8b92vp8iIkYkWPJbs1RfbJiRiTSf4YeUKZY9qy18CWHOI0u\n0ylgfsT+I4Yu3WV3iJemiMV1LbGwrTx7mcTvEE11lw+oBo8xqDq4/8VSonEpdgPz\n1VHfiFFkEwKBgDXFqe9pmtiv9trg9lQsGaiDeJUZM/0IqSeVI1zk4MlEcvwg8LhJ\nvu4iLk9LP1SElPn1N1hDsZsX8ErAw8z9Mj0BiMmCmxKKwm3x3GYhF7UpZNe4nt4q\nOrv+hMS5BZK3Ch58uqxp2rfFfyWJhkQRxLbzavk3hGB1wHbE0sTf7s+BAoGBAJwF\nn1h4tFLpNuzyqzOnP/Z1udTQ3n22YKfCrJ+LuUuynerDry3YMfF0DoHEz4Dui6BW\nxlXXupIkHcUWSRJpW9Q1hD3coFZTWNDpg8O/jj9qqr/tLMbazaOLEmna7WnRfIi4\nTBEEWlYTepT2tQPYIz61nQVO2sAalSUHiJCuUNE7AoGACeBN6JS1fBCjyLhT/GNY\nxz/lyvZcAec4nscb3COZfylSVKvb3K8QFuD3xr+Y3QuMgjyVloATmTBadk+qn0a0\nGDjRwoRA0mzX8a+1PnX7CU7FEzJGhIqUQADxDVOfs+CutvGi58vgy2PDfC6DvnCp\nFlbNo4OQ+8qbHfoMMJsV01A=\n-----END PRIVATE KEY-----\n",
+  "client_email": "oauth-service-ashton-jones-dev@ashton-jones-dev-website.iam.gserviceaccount.com",
+  "client_id": "108668530476668501164",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/oauth-service-ashton-jones-dev%40ashton-jones-dev-website.iam.gserviceaccount.com"
+}
+''');
+
+  GmailApi _gmailApi;
+
+  final scopes = [GmailApi.GmailComposeScope, GmailApi.GmailSendScope, GmailApi.GmailReadonlyScope];
+
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-   authorizedClient(identifier, scopes).then((client) {
+    print('CREDENTIALS: Client ID: ${_credentials.clientId} | Client Secret: ${_credentials.privateKey}');
 
-     // Get the HTTP client from authorized client app credentials
-     var gmailApi = new GmailApi(client);
-
-     // Create a MimeMessage
-     var builder = MessageBuilder.prepareMultipartAlternativeMessage();
-     builder.from = [MailAddress('My name', 'guitarman76940@gmail.com')];
-     builder.to = [MailAddress('Your name', 'ashtonjonesdev@gmail.com')];
-     builder.subject = 'My first message';
-     builder.addTextPlain('hello world.');
-     var mimeMessage = builder.buildMimeMessage();
-
-
-     /// Encode the MimeMessage as base64url string
-     ///
-     /// Encode MimeMessage into bytes
-     ///
-     var bytes = utf8.encode(mimeMessage.toString());
-     var base64Str = base64.encode(bytes);
-
-     /// Create byte stream
-//     var encodedString = utf8.encode(mimeMessage);
-//     var encodedLength = encodedString.length;
-//     var data = ByteData(encodedLength + 4);
-//     data.setUint32(0, encodedLength, Endian.big);
-//     var bytes = data.buffer.asUint8List();
-//     bytes.setRange(4, encodedLength + 4, encodedString);
-//     return bytes;
-
-//
-//     String encodedEmail = Base64Encoder().convert([bytes]);
-//
-//     Message message = Message();
-//
-//     message.raw = mimeMessage.
-     Message message = Message();
-
-     message.raw = base64Str;
-
-     var request = gmailApi.users.messages.send(message, 'ashtonjonesdev@gmail.com').catchError((error) => print(error));
+    // Authenticate the credentials with the service account and use them to initialize the GmailAPI
+    clientViaServiceAccount(_credentials, scopes).then((http_client) {
+      _gmailApi = GmailApi(http_client, servicePath: 'gmail/v1/users/');
+    });
 
 
 
 
-
-
-   });
 
   }
 
@@ -134,7 +90,6 @@ class _ConsultingTabState extends State<ConsultingTab> {
           'Sending email data: Name: $_name | Email: $_email Subject: | $_subject Message: $_message');
       //  TODO: Send email with form data
       sendEmail();
-
       showSubmissionDialog();
       clearTextFields();
 
@@ -181,7 +136,85 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
    sendEmail()  async {
 
+    print('sendEmail');
 
+    // Create a MimeMessage
+    MimeMessage mimeMessage = MessageBuilder.buildSimpleTextMessage(MailAddress('Ashton Jones', 'guitarman76940v@gmail.com'), [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')], 'hello', subject: 'cool subject', messageId: '23423748273492');
+
+    var mimeMessageBuilder = MessageBuilder(text: 'hello there');
+
+    mimeMessage.to = [MailAddress('Ashton Jones', 'guitarman76940@gmail.com')];
+
+    mimeMessageBuilder.from = [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')];
+
+    mimeMessageBuilder.subject = "cool subject";
+
+    MimeMessage mimeMessage2 = mimeMessageBuilder.buildMimeMessage();
+
+    // Encode the MimeMessage to base64String
+    Uint8List asciiCodec = AsciiCodec().encode(mimeMessage2.bodyRaw);
+
+    String encodedMessage = base64Encode(asciiCodec);
+
+
+    // Create a Message object and set the 'raw' property to the encoded String
+
+    Message message = Message();
+
+
+    message.raw = encodedMessage;
+
+    message.id = '234823423';
+
+    print('Encoded message: ${message.raw}');
+
+    // Send the message using the GmailAPI
+    Message messageCompleted = await _gmailApi.users.messages.send(message, 'me', uploadOptions: UploadOptions.Default).catchError(( error) {
+      print(error);
+    });
+
+
+
+
+
+
+
+     /// Encode the MimeMessage as base64url string
+     ///
+     /// Encode MimeMessage into bytes
+     ///
+//     var bytes = utf8.encode(mimeMessage.toString());
+//
+//     var messageByteString = MailCodec.base64.encodeData(bytes);
+//
+//     var base64Str = base64.encode(bytes);
+
+     /// Create byte stream
+//     var encodedString = utf8.encode(mimeMessage);
+//     var encodedLength = encodedString.length;
+//     var data = ByteData(encodedLength + 4);
+//     data.setUint32(0, encodedLength, Endian.big);
+//     var bytes = data.buffer.asUint8List();
+//     bytes.setRange(4, encodedLength + 4, encodedString);
+//     return bytes;
+
+//
+//     String encodedEmail = Base64Encoder().convert([bytes]);
+//
+//     Message message = Message();
+//
+//     message.raw = mimeMessage.
+//     Message message = Message();
+//
+//     message.raw = messageByteString;
+//
+//     var request = gmailApi.users.messages.send(message, 'ashtonjonesdev@gmail.com').catchError((error) => print(error));
+//
+//
+//
+//
+//
+//
    }
 
   @override
