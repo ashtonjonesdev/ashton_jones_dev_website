@@ -52,7 +52,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
     // Authenticate the credentials with the service account and use them to initialize the GmailAPI
     clientViaServiceAccount(_credentials, scopes).then((http_client) {
-      _gmailApi = GmailApi(http_client, servicePath: 'gmail/v1/users/');
+      _gmailApi = GmailApi(http_client);
     });
 
 
@@ -141,6 +141,8 @@ class _ConsultingTabState extends State<ConsultingTab> {
     // Create a MimeMessage
     MimeMessage mimeMessage = MessageBuilder.buildSimpleTextMessage(MailAddress('Ashton Jones', 'guitarman76940v@gmail.com'), [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')], 'hello', subject: 'cool subject', messageId: '23423748273492');
 
+    print(mimeMessage);
+
     var mimeMessageBuilder = MessageBuilder(text: 'hello there');
 
     mimeMessage.to = [MailAddress('Ashton Jones', 'guitarman76940@gmail.com')];
@@ -168,8 +170,9 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
     print('Encoded message: ${message.raw}');
 
-    // Send the message using the GmailAPI
-    Message messageCompleted = await _gmailApi.users.messages.send(message, 'me', uploadOptions: UploadOptions.Default).catchError(( error) {
+    //
+
+    Message messageCompleted = await _gmailApi.users.messages.send(message, 'ashtonjonesdev@gmail.com').catchError(( error) {
       print(error);
     });
 
