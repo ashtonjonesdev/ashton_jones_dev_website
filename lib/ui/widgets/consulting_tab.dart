@@ -51,8 +51,8 @@ class _ConsultingTabState extends State<ConsultingTab> {
     print('CREDENTIALS: Client ID: ${_credentials.clientId.toString()} | Client Secret: ${_credentials.privateKey}');
 
     // Authenticate the credentials with the service account and use them to initialize the GmailAPI
-    clientViaServiceAccount(_credentials, scopes).then((http_client) {
-      _gmailApi = GmailApi(http_client);
+    clientViaServiceAccount(_credentials, scopes).then((AuthClient httpClient) {
+      _gmailApi = GmailApi(httpClient);
 
       print('Users: ${_gmailApi.users}');
 
