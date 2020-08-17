@@ -159,10 +159,6 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
 
      // TODO: Figure out if I need to encode the entire MimeMessage as a base 64 String here again (I already set the encoding of the MimeMessage to base64 on line 156)
-    // Encode the MimeMessage to base64String
-//    Uint8List asciiCodec = AsciiCodec().encode(mimeMessage2.bodyRaw);
-//
-//    String encodedMessage = base64Encode(asciiCodec);
 
 
     // Create a Message object and set the 'raw' property to the encoded String
