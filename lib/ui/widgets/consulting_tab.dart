@@ -28,16 +28,16 @@ class _ConsultingTabState extends State<ConsultingTab> {
 {
   "type": "service_account",
   "project_id": "midyear-pattern-286419",
-  "private_key_id": "4c513d1d895aa754e0876faf571ecd3fd4493698",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCsGL9vd9GNUzg9\nB2Ni1bmERtDAOxeYEzcXstjPyj34uCxzDy37M/kQQe1WHqCXx3BzDlLGOTdPCBVy\nPMZPhk/WxlLXhscealctvzB0dzvZKVUVLzWOhACooRJV19W4cjVC0+1ICnysLeJP\nQmjrnjPmWf7XOiFSBzG4zNF2j2Fh1HD8tRG3171mhON/cuCkw+F+23DclqqRCEo+\nAk9/UfajguKw5GDyCOpDnYp5obJb/6VzZY9OrNhjcktViLuTqOUBdG3z9o6Pyhz7\no3kjSdO1ycqABE+efu2gcSo2okdOlRT81AZTwag+IDrjErxjOGZoXZhwn4IMlnhU\nE+LGX3CPAgMBAAECggEAGGNWwwMl18iSpa4QWtySx7i0CH8snskfpjoaw4eTigBU\n5uagdi2CqYJ45xq8A1uosdq2cY+A07BU6bV3HPnvAoQPD//yOSXfaNo5PFKmppBW\n6wOfrAHviKDFf74bHrerQzx+hGuys0EQBc9myE0eabxt2C5NXoR/0AJ72eNZF4sk\nrNWBJ4lz7/K81JZzMfQjOFW0cI8tJKPtJXsVyXIIn/w0jIarkcebxXE7SGkHUTl6\n3vfNNcRO1VhCKDRyauXq+m2g7bRDug2Yy3wVkYVV8oWMpqVCI/zq0cMAHqfd4Pd8\nhxnCTCSML6K8ZFlMmD8dpzrzlx8rb72nth/CCQvXcQKBgQDZ9ZHh8OfiqiXj5+y8\nzRY29/vR3i2/qgFuNbDRsJSx7DUS9ZBLQ4Fxkgfo6qdsTkid/ZaHUA0SZehIUjOM\nkMvwK6vtb6nZ08GrhB0vMLwMlTCOtE5xhaHoN0QF9oxUXLO1dTE/3ktgCkdgg4PJ\nKRzcPDlyDjYGYtYeuxeGaX8AiwKBgQDKIgkOTbXReOlZsOcw7wQq7WM/VoQthYLZ\npDwVumIjdFYVnW7yvG0KVWGkmbgbsHOkA4bFUalUtc4EizoijT7jEvWiLqIdw7ug\nGC67zKfGzO1F0uXmXmzZMnmggHoC8ixq3sStfPkX/xmg75TzlrH9N3/cmgQfWjBQ\nO1YklkTsjQKBgQCuiPdI9qC54YZ1+kKY7aHcYrhEVqZL1NdQaa4uPDjWQVA+3mWt\n32DIkSfEXCO1lvqPiYIA2Rmeofxf7XNaHJkyucXzXHem9usfbavxHhV3/f/kRn6K\naXg9fAP8wnGdHJ7LsAzAGEJDpfeCUc42R7XUpmVZ8AdTFdJgyXENMW2CAQKBgQC4\n/NEg4AnH/UpCJV5QME62Iq8z5i/toUSRfnbmw77RB8VI3t4NFFkOnflQtMYDwUb0\nEa4jo4q+1ewHyIuZ1354Pn/Cv77qUpnB+J+8i534mM+FmW+Bl2UymbkqJKqFS7FO\n1TVWOQuW5IZF/T1qeL3IKiTAdcvUDawtoUBDF6tYeQKBgEqA8KAVin0Sm1kKGCUg\nmzW9/G53TcTsMFPMGUMcZ+h7+ijGRJM5B+b65qUw/L3aDcW9qkXKNCXX1kULmpLk\nbzi7frDb8r/7m9KxCy6cLtxeeZ5CD1oOc+NTqcjcFxk2JNxYdPq5FZAFZyAkk1fr\nXhe5+pc5zc2njCxExF56kU9N\n-----END PRIVATE KEY-----\n",
-  "client_email": "oauth-service-ashton-jones-dev@midyear-pattern-286419.iam.gserviceaccount.com",
-  "client_id": "104665520010538800871",
+  "private_key_id": "9ad750e52bcdedf776d9f1971fdcc3720796f66d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCoFocKfZVJ/vQm\nzz7idT9NZw4irnEGNVwpCTX5z1VBkzauZ66QOdkLTWyR3ISkfxt2ga9Vdz/zYjbF\nYwtFxxAgMZsPBOTwCfBWr8kBy33nRy1euO3QbqZCEiVcNZTbRAGz/xO9qGvH9vCP\nSXnHRGp/6TS2vpzzJb/68pF6W+BIi3hOCTEvgvVT+CkLVKRq8BuSbrp4MpEvZZvD\nWMGXoig59GbmZAwd+Cdio4Yn6JA3dvCGRVyLY69LFf8DOBxF9tBhbet8sZu65gEA\nw7xVy8jVLMnKjGsD7USsudk1mMj8+772QIAYKpuE61DQkxMBfGJIIzkSAUcPH8w8\nb4ALVAVtAgMBAAECggEAB0LJ3JMmMscXpuGG9uNXs7FC9A6TBVCixYcHVN428Zk5\nYHlMGiDVll5m1TowZKa0+f6KI2f+VDYm5Ynsv7vkn29lIlX0ycW0Ixp+1VwD+Uyi\n0hes9jcBaZM9F+mcn4glhq/7G1M+LKonJBlpcEktTI83XrmHMB2uWFnIHQABBUEn\nJoE9FwSiNKcK1VFNHKzeUf9+x/UaIJGkO13bAJsWyn911pI2G9s/o5pn6Od/ldPw\nxpmnUTJn+1nFzgJhLKwy5oPwLJpVrzrytK/TmBa3xYNgYYq4Yxpbbxcd9a1eAYUC\njITJLKHlZwlkDZOdbk9PxTUE+uRUxfAEdjfGOzc6xQKBgQDYDacYdoxkWXv5R8vz\nxUo9jPqf0dONL6YG9YJaxca2+gnOg6GM8Tz90wwvP1lwxM1sBuQak9vNZHLghOSW\nhA61vo/ngfZtf+4ItVQhnM22Ymxy/zUt/47G6/vIVJtcDYKpu++kfzFM3mEXKoB2\nxjB74UeBjGMDYPfKIKnB24whpwKBgQDHKo4UuHIR5u4r7u1MAOQU7D2v0G4zJDYm\nTQ+b2+Lpdw3sBz4j1kALu7c2x1XWiK3NsePXo0cHoZKls8CPsyIbS4dqBeXtQJu9\nXnfO0QSYcNbGTHZC6SxvsjlnhuUJ7Xtthw72x0Qtj2jCSZhxMepSU0Eo1eO+L2Vf\nUV/hi266ywKBgB0/e+dr5QWQt5+/gHS3uJ0sgKEyHpl2Ydt/UO5I5+XNY5Z5a11R\nKxiRgYzD3q/NdKGzLR4L9i2P851BYFCf//3KlmCYz2tzbh3vrjv+pjqSiGvo8KIR\nfpqfR66PBZkomw+vSXnTXjExyaMBNfLeUaHzlWKMRrsmXWUXluOPfSDxAoGBAMLV\nJ16vvK80mIOT3MFAEd9B52qJXHRdFTfMpNtUdJrs40qlHy3Rlp+jx6wnvhn7ZQLW\n5ct6J68YaSv+Nv6cP14yOcsG8BFy5aePtWY1ZOh3YjNkc0AreFPgJnXXKVHX5qmT\nuJjDADgNlW6SrjT1noNgfFqlOoA/P0zKfyBV1UGXAoGBALTzCZFQK46lbyR8ypfj\n7oSWyijUb6o0CzNjIcFSJSCI3Mag+MlPs69VyudtESvLcI7HCw3OvJT7G1eYOpEs\nSGXsVXeA9US6CIRoFJvOXt0AZhQWz+4T30gqYWH3F1HGSw2FuSWgr+V1D/d05T17\n7bBxNvOHvr2COAMgSWLhlxIi\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-account-g-suite-ashton@midyear-pattern-286419.iam.gserviceaccount.com",
+  "client_id": "115662093115400578040",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/oauth-service-ashton-jones-dev%40midyear-pattern-286419.iam.gserviceaccount.com"
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-account-g-suite-ashton%40midyear-pattern-286419.iam.gserviceaccount.com"
 }
-''', impersonatedUser: 'ashton@grapeworks.dev');
+''');
 
   GmailApi _gmailApi;
 
@@ -141,31 +141,43 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
     print('sendEmail');
 
-    // Create a MimeMessage
-    MimeMessage mimeMessage = MessageBuilder.buildSimpleTextMessage(MailAddress('Ashton Jones', 'guitarman76940v@gmail.com'), [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')], 'hello', subject: 'cool subject', messageId: '23423748273492');
+    // Create a Mime Message and encode it using base64
 
-    print(mimeMessage);
+     MessageBuilder messageBuilder = MessageBuilder();
 
+     messageBuilder.from = [MailAddress('Ashton Jones', 'ashton@grapeworks.dev')];
+
+     messageBuilder.to = [MailAddress('Ashton Jones', 'ashton@grapeworks.dev')];
+
+     messageBuilder.subject = 'cool subject';
+
+     messageBuilder.text = 'cool text';
+
+     messageBuilder.encoding = MessageEncoding.base64;
+
+     MimeMessage mimeMessage2 = messageBuilder.buildMimeMessage();
+
+
+     // TODO: Figure out if I need to encode the entire MimeMessage as a base 64 String here again (I already set the encoding of the MimeMessage to base64 on line 156)
     // Encode the MimeMessage to base64String
-    Uint8List asciiCodec = AsciiCodec().encode(mimeMessage.bodyRaw);
-
-    String encodedMessage = base64Encode(asciiCodec);
+//    Uint8List asciiCodec = AsciiCodec().encode(mimeMessage2.bodyRaw);
+//
+//    String encodedMessage = base64Encode(asciiCodec);
 
 
     // Create a Message object and set the 'raw' property to the encoded String
-
     Message message = Message();
 
-
-    message.raw = encodedMessage;
-
-    message.id = '234823423';
+    // TODO Need to set the 'raw' property as the entire encoded MimeMessage
+    message.raw = mimeMessage2.renderMessage();
 
     print('Encoded message: ${message.raw}');
 
-    //
-//
-    Message messageCompleted = await _gmailApi.users.messages.send(message, 'ashton@grapeworks.dev').catchError(( error) {
+    print(_gmailApi.users);
+
+    // Send the email using the Gmail API 'send' method
+     // TODO: When I run this, I get an 'invalid value at 'message.raw' (TYPE_BYTES), Base64 decoding failed' error
+    Message messageCompleted = await _gmailApi.users.messages.send(message, 'me').catchError(( error) {
       print(error);
     });
 
