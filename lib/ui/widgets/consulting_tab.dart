@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:enough_mail/enough_mail.dart';
+import 'package:enough_mail/media_type.dart';
 import 'package:enough_mail/message_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:googleapis/drive/v2.dart';
@@ -13,16 +14,12 @@ import 'package:googleapis_auth/auth_browser.dart' as auth;
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
 
-
-
-
 class ConsultingTab extends StatefulWidget {
   @override
   _ConsultingTabState createState() => _ConsultingTabState();
 }
 
 class _ConsultingTabState extends State<ConsultingTab> {
-
   // Service account credentials
   final _credentials = new ServiceAccountCredentials.fromJson(r'''
 {
@@ -41,32 +38,29 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
   GmailApi _gmailApi;
 
-  final scopes = [GmailApi.GmailComposeScope, GmailApi.GmailSendScope, GmailApi.GmailReadonlyScope];
-
+  final scopes = [
+    GmailApi.GmailComposeScope,
+    GmailApi.GmailSendScope,
+    GmailApi.GmailReadonlyScope
+  ];
 
   @override
   void initState() {
     super.initState();
 
-    print('CREDENTIALS: Client ID: ${_credentials.clientId.toString()} | Client Secret: ${_credentials.privateKey}');
+    print(
+        'CREDENTIALS: Client ID: ${_credentials.clientId.toString()} | Client Secret: ${_credentials.privateKey}');
 
     // Authenticate the credentials with the service account and use them to initialize the GmailAPI
     clientViaServiceAccount(_credentials, scopes).then((AuthClient httpClient) {
       _gmailApi = GmailApi(httpClient);
 
       print('Users: ${_gmailApi.users}');
-
     });
-
-
-
-
-
   }
 
   final _consultingFormKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKeyHome = GlobalKey<ScaffoldState>();
-
 
   String _name;
   String _email;
@@ -78,15 +72,11 @@ class _ConsultingTabState extends State<ConsultingTab> {
   final TextEditingController _subjectController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
 
-
-
-
   validateAndSendEmail() {
     final form = _consultingFormKey.currentState;
     form.save();
     // Validate information was correctly entered
     if (form.validate()) {
-
       _consultingFormKey.currentState.save();
       print('Form was successfully validated');
       print(
@@ -95,95 +85,112 @@ class _ConsultingTabState extends State<ConsultingTab> {
       sendEmail();
       showSubmissionDialog();
       clearTextFields();
-
-    }
-
-    else {
+    } else {
       print('Form validation unsuccessful');
     }
   }
 
-   showSubmissionDialog() {
+  showSubmissionDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            title: Text("Success!",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5
+                    .copyWith(color: Colors.green),
+                textAlign: TextAlign.center),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.asset('images/androidify.gif'),
+                  Text("Thank you \b$_name\b! We\'ll be in touch soon!",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 16, color: Colors.grey.shade700))
+                ],
+              ),
+            ),
+            actions: [
+              FlatButton.icon(
+                  color: kPrimaryColor,
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(Icons.check),
+                  label: Text('OK'))
+            ],
+          );
+        });
+  }
 
-     showDialog(
-         context: context,
-         builder: (BuildContext context){
-           return AlertDialog(
-             shape:
-             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-             title: Text("Success!", style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.green), textAlign: TextAlign.center),
-             content: SingleChildScrollView(
-               child: Column(
-                 children: [
-                   Image.asset('images/androidify.gif'),
-                   Text("Thank you \b$_name\b! We\'ll be in touch soon!", style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 16, color: Colors.grey.shade700))
-                 ],
-               ),
-             ),
-             actions: [
-               FlatButton.icon(color: kPrimaryColor,onPressed: () {Navigator.of(context).pop();}, icon: Icon(Icons.check), label: Text('OK'))
-             ],
-           );
-         }
-     );
-   }
-
-   clearTextFields() {
-
+  clearTextFields() {
     _nameController.clear();
     _subjectController.clear();
     _emailController.clear();
     _messageController.clear();
+  }
 
-   }
-
-   sendEmail()  async {
-
+  sendEmail() async {
     print('sendEmail');
 
     // Create a Mime Message and encode it using base64
 
-     MessageBuilder messageBuilder = MessageBuilder();
+    MessageBuilder messageBuilder = MessageBuilder();
 
-     messageBuilder.from = [MailAddress('Ashton Jones', 'ashton@grapeworks.dev')];
+    messageBuilder.from = [
+      MailAddress('Ashton Jones', 'ashton@grapeworks.dev')
+    ];
 
-     messageBuilder.to = [MailAddress('Ashton Jones', 'ashton@grapeworks.dev')];
+    messageBuilder.to = [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')];
 
-     messageBuilder.subject = 'cool subject';
+    messageBuilder.subject = 'cool subject';
 
-     messageBuilder.text = 'cool text';
+    messageBuilder.text = 'cool text';
 
-     messageBuilder.encoding = MessageEncoding.base64;
+    messageBuilder.encoding = MessageEncoding.base64;
 
-     MimeMessage mimeMessage2 = messageBuilder.buildMimeMessage();
+    // Added Rfc822 encoding
+    messageBuilder.contentType = ContentTypeHeader.from(MediaType.fromSubtype(MediaSubtype.messageRfc822));
+
+    messageBuilder.messageId = '1';
+
+    MimeMessage mimeMessage = messageBuilder.buildMimeMessage();
 
 
-     // TODO: Figure out if I need to encode the entire MimeMessage as a base 64 String here again (I already set the encoding of the MimeMessage to base64 on line 156)
-
+    // Ensure body is also encoded as base64 and Rfc822
+    mimeMessage.body = BodyPart();
+    mimeMessage.body.contentType = ContentTypeHeader.from(MediaType.fromSubtype(MediaSubtype.messageRfc822));
+    mimeMessage.body.encoding = 'base64';
 
     // Create a Message object and set the 'raw' property to the encoded String
     Message message = Message();
 
     // TODO Need to set the 'raw' property as the entire encoded MimeMessage
-    message.raw = mimeMessage2.renderMessage();
+    // TODO: Figure out if I need to encode the entire MimeMessage as a base 64 String here again (I already set the encoding of the MimeMessage to base64 on line 156)
+
+
+    // Should return the entire encoded MimeMessage
+    String encodedMimeMessage = mimeMessage.renderMessage();
+
+    // Error happening here
+    message.raw = encodedMimeMessage;
 
     print('Encoded message: ${message.raw}');
 
-    print(_gmailApi.users);
-
     // Send the email using the Gmail API 'send' method
-     // TODO: When I run this, I get an 'invalid value at 'message.raw' (TYPE_BYTES), Base64 decoding failed' error
-    Message messageCompleted = await _gmailApi.users.messages.send(message, 'me').catchError(( error) {
+    // TODO: When I run this, I get an 'invalid value at 'message.raw' (TYPE_BYTES), Base64 decoding failed' error
+    Message messageCompleted =
+        await _gmailApi.users.messages.send(message, 'me').catchError((error) {
       print(error);
     });
 
     print(messageCompleted);
-
-
-
-
-
-   }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +208,10 @@ class _ConsultingTabState extends State<ConsultingTab> {
                   SizedBox(height: 40.0),
                   Text(
                     'Work with me',
-                    style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.grey.shade700),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        .copyWith(color: Colors.grey.shade700),
                   ),
                   SizedBox(height: 20.0),
                   Padding(
@@ -224,7 +234,9 @@ class _ConsultingTabState extends State<ConsultingTab> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 48),
                     child: TextFormField(
-                      autofillHints: [AutofillHints.email,],
+                      autofillHints: [
+                        AutofillHints.email,
+                      ],
                       style: Theme.of(context).textTheme.bodyText1,
                       validator: (String value) {
                         if (value.isEmpty) {
@@ -278,7 +290,13 @@ class _ConsultingTabState extends State<ConsultingTab> {
                     color: kPrimaryColor,
                     child: MaterialButton(
                       minWidth: 400,
-                      child: Text("SUBMIT", style: Theme.of(context).textTheme.button.copyWith(color: Colors.white),),
+                      child: Text(
+                        "SUBMIT",
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            .copyWith(color: Colors.white),
+                      ),
                       onPressed: validateAndSendEmail,
                     ),
                   ),
