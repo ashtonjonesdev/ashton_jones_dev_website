@@ -1,6 +1,8 @@
 import 'dart:html';
 
+import 'package:ashton_jones_dev_website/core/utils/ComputerProgrammerController.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:mailto/mailto.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,9 +14,12 @@ class ConsultingTab extends StatefulWidget {
 
 class _ConsultingTabState extends State<ConsultingTab> {
 
+  ComputerProgrammerController _computerProgrammerController;
+
 
   @override
   void initState() {
+    _computerProgrammerController = ComputerProgrammerController();
     super.initState();
   }
 
@@ -221,6 +226,16 @@ class _ConsultingTabState extends State<ConsultingTab> {
                     ),
                   ),
                   SizedBox(height: 40.0),
+                  Container(
+                      height: 200,
+                      padding: const EdgeInsets.only(left: 30.0, right:30.0),
+                      child: FlareActor(
+                        "assets/computer_programmer.flr",
+                        shouldClip: false,
+                        alignment: Alignment.bottomCenter,
+                        fit: BoxFit.contain,
+                        controller: _computerProgrammerController,
+                      )),
                 ],
               ),
             ),
