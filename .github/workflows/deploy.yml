@@ -37,7 +37,7 @@ jobs:
       - run: cp -R build/web/* firebase_hosting/public/
       
       # Using Firebase Actions to deploy to our Firebase Hosting
-      - uses: w9jds/firebase-action@master
+      - uses: w9jds/firebase-action@master --project ashton-jones-dev-hosting
         with:
           args: deploy --only hosting
         env:
