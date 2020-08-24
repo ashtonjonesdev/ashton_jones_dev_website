@@ -35,7 +35,7 @@ class AboutTab extends StatelessWidget {
                 radius: 100,
                 backgroundImage:
                 Image
-                    .asset('images/cool_profile_picture.jpg')
+                    .asset('images/ashton_picture.jpg')
                     .image,
               ),
               SizedBox(
