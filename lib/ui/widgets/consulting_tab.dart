@@ -13,6 +13,8 @@ import 'package:googleapis_auth/auth.dart';
 import 'package:googleapis_auth/auth_browser.dart' as auth;
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
+import 'package:mailto/mailto.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ConsultingTab extends StatefulWidget {
   @override
@@ -44,19 +46,33 @@ class _ConsultingTabState extends State<ConsultingTab> {
     GmailApi.GmailReadonlyScope
   ];
 
+  String userName = 'ashtonjonesdev';
+  String password = 'Ibanez94';
+  String imapServerHost = 'imap.gmail.com';
+  int imapServerPort = 993;
+  bool isImapServerSecure = true;
+  String popServerHost = 'pop.domain.com';
+  int popServerPort = 995;
+  bool isPopServerSecure = true;
+  String smtpServerHost = 'smtp.gmail.com';
+  int smtpServerPort = 465;
+  bool isSmtpServerSecure = true;
+
   @override
   void initState() {
     super.initState();
+//
+//    print(
+//        'CREDENTIALS: Client ID: ${_credentials.clientId.toString()} | Client Secret: ${_credentials.privateKey}');
 
-    print(
-        'CREDENTIALS: Client ID: ${_credentials.clientId.toString()} | Client Secret: ${_credentials.privateKey}');
-
-    // Authenticate the credentials with the service account and use them to initialize the GmailAPI
+//     Authenticate the credentials with the service account and use them to initialize the GmailAPI
     clientViaServiceAccount(_credentials, scopes).then((AuthClient httpClient) {
       _gmailApi = GmailApi(httpClient);
 
       print('Users: ${_gmailApi.users}');
     });
+
+
   }
 
   final _consultingFormKey = GlobalKey<FormState>();
@@ -82,7 +98,10 @@ class _ConsultingTabState extends State<ConsultingTab> {
       print(
           'Sending email data: Name: $_name | Email: $_email Subject: | $_subject Message: $_message');
       //  TODO: Send email with form data
-      sendEmail();
+//      sendEmail();
+//      smtpExample();
+//      imapExample();
+      launchMailto();
       showSubmissionDialog();
       clearTextFields();
     } else {
@@ -135,9 +154,97 @@ class _ConsultingTabState extends State<ConsultingTab> {
     _messageController.clear();
   }
 
+  Future<void> smtpExample() async {
+    var client = SmtpClient('ashtonjones.dev@gmail.com', isLogEnabled: true);
+    await client.connectToServer(smtpServerHost, smtpServerPort,
+        isSecure: isSmtpServerSecure);
+    var ehloResponse = await client.ehlo();
+    if (!ehloResponse.isOkStatus) {
+      print('SMTP: unable to say helo/ehlo: ${ehloResponse.message}');
+      return;
+    }
+    var loginResponse = await client.login('ashtonjonesdev@gmail.com', 'Ibanez94');
+//    if (loginResponse.isOkStatus) {
+//      var builder = MessageBuilder.prepareMultipartAlternativeMessage();
+//      builder.from = [MailAddress('Ash Jones', 'guitarman76940@gmail.com')];
+//      builder.to = [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')];
+//      builder.subject = 'My first message';
+//      builder.addTextPlain('hello world.');
+//      builder.addTextHtml('<p>hello <b>world</b></p>');
+//      var mimeMessage = builder.buildMimeMessage();
+//      var sendResponse = await client.sendMessage(mimeMessage);
+//      print('message sent: ${sendResponse.isOkStatus}');
+//    }
+  }
+
+  Future<void> imapExample() async {
+    var client = ImapClient(isLogEnabled: false);
+    await client.connectToServer(imapServerHost, imapServerPort,
+        isSecure: isImapServerSecure);
+    var loginResponse = await client.login(userName, password);
+    if (loginResponse.isOkStatus) {
+      var listResponse = await client.listMailboxes();
+      if (listResponse.isOkStatus) {
+        print('mailboxes: ${listResponse.result}');
+      }
+      var inboxResponse = await client.selectInbox();
+      if (inboxResponse.isOkStatus) {
+        // fetch 10 most recent messages:
+        var fetchResponse = await client.fetchRecentMessages(
+            messageCount: 10, criteria: 'BODY.PEEK[]');
+        if (fetchResponse.isOkStatus) {
+          var messages = fetchResponse.result.messages;
+          for (var message in messages) {
+            print(message);
+          }
+        }
+      }
+      await client.logout();
+    }
+  }
+
+  /// High level mail API example
+  Future<void> mailExample() async {
+    var email = '$userName@gmail.com';
+    print('discovering settings for  $email...');
+    var config = await Discover.discover(email);
+    if (config == null) {
+      print('Unable to autodiscover settings for $email');
+      return;
+    }
+    print('connecting to ${config.displayName}.');
+    var account =
+    MailAccount.fromDiscoveredSetings('my account', email, password, config);
+    var mailClient = MailClient(account, isLogEnabled: true);
+    var connectResponse = await mailClient.connect();
+    if (connectResponse.isFailedStatus) {
+      print('unable to log in');
+      return;
+    }
+    print('connected');
+    var mailboxesResponse =
+    await mailClient.listMailboxesAsTree(createIntermediate: false);
+    if (mailboxesResponse.isOkStatus) {
+      print(mailboxesResponse.result);
+      await mailClient.selectInbox();
+      var fetchResponse = await mailClient.fetchMessages(count: 20);
+      if (fetchResponse.isOkStatus) {
+        for (var msg in fetchResponse.result) {
+          print(msg);
+        }
+      }
+    }
+  }
+
+
+
   sendEmail() async {
     print('sendEmail');
 
+
+
+
+//
     // Create a Mime Message and encode it using base64
 
     MessageBuilder messageBuilder = MessageBuilder();
@@ -172,13 +279,15 @@ class _ConsultingTabState extends State<ConsultingTab> {
 
     // TODO Need to set the 'raw' property as the entire encoded MimeMessage
     // TODO: Figure out if I need to encode the entire MimeMessage as a base 64 String here again (I already set the encoding of the MimeMessage to base64 on line 156)
-
-
-    // Should return the entire encoded MimeMessage
-    String encodedMimeMessage = mimeMessage.renderMessage();
+//
+//    String encodedMessage = Base64Encoder.urlSafe().
+//
+//
+//    // Should return the entire encoded MimeMessage
+//    String encodedMimeMessage = mimeMessage.renderMessage();
 
     // Error happening here
-    message.raw = encodedMimeMessage;
+    message.raw = base64.encode(utf8.encode(mimeMessage.renderMessage()));
 
     print('Encoded message: ${message.raw}');
 
@@ -190,6 +299,19 @@ class _ConsultingTabState extends State<ConsultingTab> {
     });
 
     print(messageCompleted);
+  }
+
+  launchMailto() async {
+    final mailtoLink = Mailto(
+      to: ['ashtonjonesdev@gmail.com'],
+      cc: ['cc1@example.com', 'cc2@example.com'],
+      subject: 'subject',
+      body: 'hello there',
+    );
+    // Convert the Mailto instance into a string.
+    // Use either Dart's string interpolation
+    // or the toString() method.
+    await launch('$mailtoLink');
   }
 
   @override
