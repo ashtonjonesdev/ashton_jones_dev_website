@@ -14,6 +14,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  String _appBarTitle = '👨🏻‍💻';
+
 
   static List<Widget> tabWidgets = <Widget>[
     AboutTab(),
@@ -29,7 +31,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ashton Jones Dev'),
+        title: Text('$_appBarTitle', textScaleFactor: 3,),
         centerTitle: true,
       ),
       body: Center(
@@ -58,6 +60,25 @@ class _HomeState extends State<Home> {
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
+            switch(index) {
+              case 0:
+                _appBarTitle = '👨🏻‍💻';
+                break;
+              case 1:
+                _appBarTitle = '✍🏼';
+                break;
+              case 2:
+                _appBarTitle = '📱';
+                break;
+              case 3:
+                _appBarTitle = '🛠';
+                break;
+              case 4:
+                _appBarTitle = '🕹';
+                break;
+              default:
+                break;
+            }
           });
         },
         showUnselectedLabels: true,

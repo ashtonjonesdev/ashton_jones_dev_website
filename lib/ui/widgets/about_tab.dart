@@ -31,16 +31,6 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              CircleAvatar(
-                radius: 100,
-                backgroundImage:
-                Image
-                    .asset('images/ashton_picture.jpg')
-                    .image,
-              ),
-              SizedBox(
-                height: 20,
-              ),
               Text(
                 'Ashton Jones',
                 textScaleFactor: 4,
@@ -56,6 +46,13 @@ class AboutTab extends StatelessWidget {
                     .caption.copyWith(color: Colors.grey.shade700),
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Image.asset('images/ashton_picture.jpg', fit: BoxFit.contain),
+              SizedBox(
+                height: 20,
               ),
               Divider(
                 height: 40,
@@ -306,16 +303,6 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              CircleAvatar(
-                radius: 100,
-                backgroundImage:
-                Image
-                    .asset('images/ashton_picture.jpg')
-                    .image,
-              ),
-              SizedBox(
-                height: 20,
-              ),
               Text(
                 'Ashton Jones',
                 textScaleFactor: 4,
@@ -331,6 +318,13 @@ class AboutTab extends StatelessWidget {
                     .caption.copyWith(color: Colors.grey.shade700),
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Image.asset('images/ashton_picture.jpg', fit: BoxFit.contain),
+              SizedBox(
+                height: 20,
               ),
               Divider(
                 height: 40,
