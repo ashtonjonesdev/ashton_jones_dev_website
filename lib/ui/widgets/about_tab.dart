@@ -50,7 +50,7 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Image.asset('images/ashton_picture.jpg', fit: BoxFit.contain),
+              Image.asset('images/ash.png', fit: BoxFit.contain),
               SizedBox(
                 height: 20,
               ),
@@ -322,7 +322,7 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Image.asset('images/ashton_picture.jpg', fit: BoxFit.contain),
+              Image.asset('images/ash.png', fit: BoxFit.contain),
               SizedBox(
                 height: 20,
               ),
