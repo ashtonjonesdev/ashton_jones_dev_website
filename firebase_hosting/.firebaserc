@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "ashton-jones-dev-hosting"
+    "default": "ashton-jones-dev-hosting",
+    "master": "ashton-jones-dev-hosting"
   }
 }
