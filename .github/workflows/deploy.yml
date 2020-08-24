@@ -39,7 +39,7 @@ jobs:
       # Using Firebase Actions to deploy to our Firebase Hosting
       - uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting --project <ashton-jones-dev-hosting>
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.firebase_key }}
           # This is where our stored secret will come in use
