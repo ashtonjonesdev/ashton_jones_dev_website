@@ -1,18 +1,7 @@
-import 'dart:convert';
 import 'dart:html';
-import 'dart:typed_data';
 
 import 'package:ashton_jones_dev_website/styles/colors.dart';
-import 'package:enough_mail/enough_mail.dart';
-import 'package:enough_mail/media_type.dart';
-import 'package:enough_mail/message_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:googleapis/drive/v2.dart';
-import 'package:googleapis/gmail/v1.dart';
-import 'package:googleapis_auth/auth.dart';
-import 'package:googleapis_auth/auth_browser.dart' as auth;
-import 'package:googleapis_auth/auth_io.dart';
-import 'package:http/http.dart' as http;
 import 'package:mailto/mailto.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,57 +11,11 @@ class ConsultingTab extends StatefulWidget {
 }
 
 class _ConsultingTabState extends State<ConsultingTab> {
-  // Service account credentials
-  final _credentials = new ServiceAccountCredentials.fromJson(r'''
-{
-  "type": "service_account",
-  "project_id": "midyear-pattern-286419",
-  "private_key_id": "9ad750e52bcdedf776d9f1971fdcc3720796f66d",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCoFocKfZVJ/vQm\nzz7idT9NZw4irnEGNVwpCTX5z1VBkzauZ66QOdkLTWyR3ISkfxt2ga9Vdz/zYjbF\nYwtFxxAgMZsPBOTwCfBWr8kBy33nRy1euO3QbqZCEiVcNZTbRAGz/xO9qGvH9vCP\nSXnHRGp/6TS2vpzzJb/68pF6W+BIi3hOCTEvgvVT+CkLVKRq8BuSbrp4MpEvZZvD\nWMGXoig59GbmZAwd+Cdio4Yn6JA3dvCGRVyLY69LFf8DOBxF9tBhbet8sZu65gEA\nw7xVy8jVLMnKjGsD7USsudk1mMj8+772QIAYKpuE61DQkxMBfGJIIzkSAUcPH8w8\nb4ALVAVtAgMBAAECggEAB0LJ3JMmMscXpuGG9uNXs7FC9A6TBVCixYcHVN428Zk5\nYHlMGiDVll5m1TowZKa0+f6KI2f+VDYm5Ynsv7vkn29lIlX0ycW0Ixp+1VwD+Uyi\n0hes9jcBaZM9F+mcn4glhq/7G1M+LKonJBlpcEktTI83XrmHMB2uWFnIHQABBUEn\nJoE9FwSiNKcK1VFNHKzeUf9+x/UaIJGkO13bAJsWyn911pI2G9s/o5pn6Od/ldPw\nxpmnUTJn+1nFzgJhLKwy5oPwLJpVrzrytK/TmBa3xYNgYYq4Yxpbbxcd9a1eAYUC\njITJLKHlZwlkDZOdbk9PxTUE+uRUxfAEdjfGOzc6xQKBgQDYDacYdoxkWXv5R8vz\nxUo9jPqf0dONL6YG9YJaxca2+gnOg6GM8Tz90wwvP1lwxM1sBuQak9vNZHLghOSW\nhA61vo/ngfZtf+4ItVQhnM22Ymxy/zUt/47G6/vIVJtcDYKpu++kfzFM3mEXKoB2\nxjB74UeBjGMDYPfKIKnB24whpwKBgQDHKo4UuHIR5u4r7u1MAOQU7D2v0G4zJDYm\nTQ+b2+Lpdw3sBz4j1kALu7c2x1XWiK3NsePXo0cHoZKls8CPsyIbS4dqBeXtQJu9\nXnfO0QSYcNbGTHZC6SxvsjlnhuUJ7Xtthw72x0Qtj2jCSZhxMepSU0Eo1eO+L2Vf\nUV/hi266ywKBgB0/e+dr5QWQt5+/gHS3uJ0sgKEyHpl2Ydt/UO5I5+XNY5Z5a11R\nKxiRgYzD3q/NdKGzLR4L9i2P851BYFCf//3KlmCYz2tzbh3vrjv+pjqSiGvo8KIR\nfpqfR66PBZkomw+vSXnTXjExyaMBNfLeUaHzlWKMRrsmXWUXluOPfSDxAoGBAMLV\nJ16vvK80mIOT3MFAEd9B52qJXHRdFTfMpNtUdJrs40qlHy3Rlp+jx6wnvhn7ZQLW\n5ct6J68YaSv+Nv6cP14yOcsG8BFy5aePtWY1ZOh3YjNkc0AreFPgJnXXKVHX5qmT\nuJjDADgNlW6SrjT1noNgfFqlOoA/P0zKfyBV1UGXAoGBALTzCZFQK46lbyR8ypfj\n7oSWyijUb6o0CzNjIcFSJSCI3Mag+MlPs69VyudtESvLcI7HCw3OvJT7G1eYOpEs\nSGXsVXeA9US6CIRoFJvOXt0AZhQWz+4T30gqYWH3F1HGSw2FuSWgr+V1D/d05T17\n7bBxNvOHvr2COAMgSWLhlxIi\n-----END PRIVATE KEY-----\n",
-  "client_email": "service-account-g-suite-ashton@midyear-pattern-286419.iam.gserviceaccount.com",
-  "client_id": "115662093115400578040",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-account-g-suite-ashton%40midyear-pattern-286419.iam.gserviceaccount.com"
-}
-''');
 
-  GmailApi _gmailApi;
-
-  final scopes = [
-    GmailApi.GmailComposeScope,
-    GmailApi.GmailSendScope,
-    GmailApi.GmailReadonlyScope
-  ];
-
-  String userName = 'ashtonjonesdev';
-  String password = 'Ibanez94';
-  String imapServerHost = 'imap.gmail.com';
-  int imapServerPort = 993;
-  bool isImapServerSecure = true;
-  String popServerHost = 'pop.domain.com';
-  int popServerPort = 995;
-  bool isPopServerSecure = true;
-  String smtpServerHost = 'smtp.gmail.com';
-  int smtpServerPort = 465;
-  bool isSmtpServerSecure = true;
 
   @override
   void initState() {
     super.initState();
-//
-//    print(
-//        'CREDENTIALS: Client ID: ${_credentials.clientId.toString()} | Client Secret: ${_credentials.privateKey}');
-
-//     Authenticate the credentials with the service account and use them to initialize the GmailAPI
-    clientViaServiceAccount(_credentials, scopes).then((AuthClient httpClient) {
-      _gmailApi = GmailApi(httpClient);
-
-      print('Users: ${_gmailApi.users}');
-    });
-
-
   }
 
   final _consultingFormKey = GlobalKey<FormState>();
@@ -97,11 +40,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
       print('Form was successfully validated');
       print(
           'Sending email data: Name: $_name | Email: $_email Subject: | $_subject Message: $_message');
-      //  TODO: Send email with form data
-//      sendEmail();
-//      smtpExample();
-//      imapExample();
-      launchMailto();
+      sendEmail();
       showSubmissionDialog();
       clearTextFields();
     } else {
@@ -154,165 +93,24 @@ class _ConsultingTabState extends State<ConsultingTab> {
     _messageController.clear();
   }
 
-  Future<void> smtpExample() async {
-    var client = SmtpClient('ashtonjones.dev@gmail.com', isLogEnabled: true);
-    await client.connectToServer(smtpServerHost, smtpServerPort,
-        isSecure: isSmtpServerSecure);
-    var ehloResponse = await client.ehlo();
-    if (!ehloResponse.isOkStatus) {
-      print('SMTP: unable to say helo/ehlo: ${ehloResponse.message}');
-      return;
-    }
-    var loginResponse = await client.login('ashtonjonesdev@gmail.com', 'Ibanez94');
-//    if (loginResponse.isOkStatus) {
-//      var builder = MessageBuilder.prepareMultipartAlternativeMessage();
-//      builder.from = [MailAddress('Ash Jones', 'guitarman76940@gmail.com')];
-//      builder.to = [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')];
-//      builder.subject = 'My first message';
-//      builder.addTextPlain('hello world.');
-//      builder.addTextHtml('<p>hello <b>world</b></p>');
-//      var mimeMessage = builder.buildMimeMessage();
-//      var sendResponse = await client.sendMessage(mimeMessage);
-//      print('message sent: ${sendResponse.isOkStatus}');
-//    }
-  }
 
-  Future<void> imapExample() async {
-    var client = ImapClient(isLogEnabled: false);
-    await client.connectToServer(imapServerHost, imapServerPort,
-        isSecure: isImapServerSecure);
-    var loginResponse = await client.login(userName, password);
-    if (loginResponse.isOkStatus) {
-      var listResponse = await client.listMailboxes();
-      if (listResponse.isOkStatus) {
-        print('mailboxes: ${listResponse.result}');
-      }
-      var inboxResponse = await client.selectInbox();
-      if (inboxResponse.isOkStatus) {
-        // fetch 10 most recent messages:
-        var fetchResponse = await client.fetchRecentMessages(
-            messageCount: 10, criteria: 'BODY.PEEK[]');
-        if (fetchResponse.isOkStatus) {
-          var messages = fetchResponse.result.messages;
-          for (var message in messages) {
-            print(message);
-          }
-        }
-      }
-      await client.logout();
-    }
-  }
-
-  /// High level mail API example
-  Future<void> mailExample() async {
-    var email = '$userName@gmail.com';
-    print('discovering settings for  $email...');
-    var config = await Discover.discover(email);
-    if (config == null) {
-      print('Unable to autodiscover settings for $email');
-      return;
-    }
-    print('connecting to ${config.displayName}.');
-    var account =
-    MailAccount.fromDiscoveredSetings('my account', email, password, config);
-    var mailClient = MailClient(account, isLogEnabled: true);
-    var connectResponse = await mailClient.connect();
-    if (connectResponse.isFailedStatus) {
-      print('unable to log in');
-      return;
-    }
-    print('connected');
-    var mailboxesResponse =
-    await mailClient.listMailboxesAsTree(createIntermediate: false);
-    if (mailboxesResponse.isOkStatus) {
-      print(mailboxesResponse.result);
-      await mailClient.selectInbox();
-      var fetchResponse = await mailClient.fetchMessages(count: 20);
-      if (fetchResponse.isOkStatus) {
-        for (var msg in fetchResponse.result) {
-          print(msg);
-        }
-      }
-    }
-  }
-
-
-
+  // Send email using mail_to and url_launcher packages
   sendEmail() async {
+
     print('sendEmail');
 
-
-
-
-//
-    // Create a Mime Message and encode it using base64
-
-    MessageBuilder messageBuilder = MessageBuilder();
-
-    messageBuilder.from = [
-      MailAddress('Ashton Jones', 'ashton@grapeworks.dev')
-    ];
-
-    messageBuilder.to = [MailAddress('Ashton Jones', 'ashtonjonesdev@gmail.com')];
-
-    messageBuilder.subject = 'cool subject';
-
-    messageBuilder.text = 'cool text';
-
-    messageBuilder.encoding = MessageEncoding.base64;
-
-    // Added Rfc822 encoding
-    messageBuilder.contentType = ContentTypeHeader.from(MediaType.fromSubtype(MediaSubtype.messageRfc822));
-
-    messageBuilder.messageId = '1';
-
-    MimeMessage mimeMessage = messageBuilder.buildMimeMessage();
-
-
-    // Ensure body is also encoded as base64 and Rfc822
-    mimeMessage.body = BodyPart();
-    mimeMessage.body.contentType = ContentTypeHeader.from(MediaType.fromSubtype(MediaSubtype.messageRfc822));
-    mimeMessage.body.encoding = 'base64';
-
-    // Create a Message object and set the 'raw' property to the encoded String
-    Message message = Message();
-
-    // TODO Need to set the 'raw' property as the entire encoded MimeMessage
-    // TODO: Figure out if I need to encode the entire MimeMessage as a base 64 String here again (I already set the encoding of the MimeMessage to base64 on line 156)
-//
-//    String encodedMessage = Base64Encoder.urlSafe().
-//
-//
-//    // Should return the entire encoded MimeMessage
-//    String encodedMimeMessage = mimeMessage.renderMessage();
-
-    // Error happening here
-    message.raw = base64.encode(utf8.encode(mimeMessage.renderMessage()));
-
-    print('Encoded message: ${message.raw}');
-
-    // Send the email using the Gmail API 'send' method
-    // TODO: When I run this, I get an 'invalid value at 'message.raw' (TYPE_BYTES), Base64 decoding failed' error
-    Message messageCompleted =
-        await _gmailApi.users.messages.send(message, 'me').catchError((error) {
-      print(error);
-    });
-
-    print(messageCompleted);
-  }
-
-  launchMailto() async {
     final mailtoLink = Mailto(
       to: ['ashtonjonesdev@gmail.com'],
-      cc: ['cc1@example.com', 'cc2@example.com'],
-      subject: 'subject',
-      body: 'hello there',
+      subject: '$_subject',
+      body: '$_message',
     );
     // Convert the Mailto instance into a string.
     // Use either Dart's string interpolation
     // or the toString() method.
     await launch('$mailtoLink');
+
   }
+
 
   @override
   Widget build(BuildContext context) {
