@@ -43,12 +43,12 @@ class AboutTab extends StatelessWidget {
                 style: Theme
                     .of(context)
                     .textTheme
-                    .caption.copyWith(color: Colors.grey.shade700),
+                    .bodyText1.copyWith(color: Colors.grey.shade700),
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               Image.asset('images/ash.png', fit: BoxFit.contain),
               SizedBox(
@@ -315,12 +315,12 @@ class AboutTab extends StatelessWidget {
                 style: Theme
                     .of(context)
                     .textTheme
-                    .caption.copyWith(color: Colors.grey.shade700),
+                    .bodyText1.copyWith(color: Colors.grey.shade700),
                 textScaleFactor: 2,
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               Image.asset('images/ash.png', fit: BoxFit.contain),
               SizedBox(

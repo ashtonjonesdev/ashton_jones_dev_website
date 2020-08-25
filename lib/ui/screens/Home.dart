@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$_appBarTitle', textScaleFactor: 3,),
+        title: Text('$_appBarTitle', textScaleFactor: 2,),
         centerTitle: true,
       ),
       body: Center(
