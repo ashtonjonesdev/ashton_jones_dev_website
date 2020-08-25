@@ -38,7 +38,7 @@ class _MediumArticleWidgetState extends State<MediumArticleWidget> {
       child: Card(
         color: cardBackgroundColor,
         elevation: 16,
-        margin: EdgeInsets.fromLTRB(100, 48, 100, 48),
+        margin: EdgeInsets.fromLTRB(50, 48, 50, 48),
         child:Padding(
             padding: const EdgeInsets.all(32.0),
             child: Column(
