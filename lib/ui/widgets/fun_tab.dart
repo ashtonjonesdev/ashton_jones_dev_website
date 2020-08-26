@@ -30,35 +30,15 @@ class _FunTabState extends State<FunTab> {
           textScaleFactor: 4,
         ),
         SizedBox(height: 30),
-        Expanded(
-            flex: 1,
-            child: Image.asset('images/badminton.png', fit: BoxFit.contain)),
-        Container(
-          decoration: new BoxDecoration(
-            image: new DecorationImage(
-              image: new AssetImage(
-                'assets/images/badminton.png',
-              ),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
+        // TODO: Fix images sizes
+        Expanded(flex: 1, child: Image.asset('images/badminton.png', fit: BoxFit.contain)),
         Divider(
           height: 40,
           thickness: 5,
         ),
-        Text(
-          '🕸️',
-          textScaleFactor: 4,
-        ),
+        Text('🕸️', textScaleFactor: 4,),
         SizedBox(height: 30),
-        Expanded(
-            flex: 1,
-            child: DecorationImage(
-                child: Image.asset(
-              'images/spikeball.png',
-              fit: BoxFit.contain,
-            )))
+        Expanded(flex: 1, child: Image.asset('images/spikeball.png', fit: BoxFit.contain,))
       ],
     );
   }
