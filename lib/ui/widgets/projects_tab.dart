@@ -1,5 +1,8 @@
 import 'package:ashton_jones_dev_website/core/data/projects_data.dart';
+import 'package:ashton_jones_dev_website/core/utils/JumpAndPhoneController.dart';
+import 'package:ashton_jones_dev_website/core/utils/WritingPencilController.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/project_widget.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class ProjectsTab extends StatefulWidget {
@@ -8,9 +11,34 @@ class ProjectsTab extends StatefulWidget {
 }
 
 class _ProjectsTabState extends State<ProjectsTab> {
+
+  WritingPencilController _writingPencilController = WritingPencilController();
+  JumpAndPhoneController _jumpAndPhoneController = JumpAndPhoneController();
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemCount: projects.length,itemBuilder: (context, index) => ProjectWidget(projects[index]));
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Container(
+            height: 150,
+            child: FlareActor(
+              'assets/jump_and_phone.flr',
+              shouldClip: false,
+              fit: BoxFit.contain,
+              alignment: Alignment.bottomCenter,
+              controller: _jumpAndPhoneController,
+            ),
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(itemCount: projects.length,itemBuilder: (context, index) => ProjectWidget(projects[index])),
+        ),
+      ],
+    );
+
   }
 }
 

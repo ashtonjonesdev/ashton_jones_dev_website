@@ -1,14 +1,65 @@
+import 'package:ashton_jones_dev_website/core/utils/SmileFaceController.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class FunTab extends StatelessWidget {
+class FunTab extends StatefulWidget {
+  @override
+  _FunTabState createState() => _FunTabState();
+}
+
+class _FunTabState extends State<FunTab> {
+  SmileFaceController _smileFaceController = SmileFaceController();
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          'Fun'
+    return Column(
+      children: [
+        Container(
+          height: 150,
+          child: FlareActor(
+            'assets/smile_face.flr',
+            controller: _smileFaceController,
+            shouldClip: false,
+            fit: BoxFit.contain,
+            alignment: Alignment.bottomCenter,
+          ),
         ),
-      ),
+        Text(
+          '🏸',
+          textScaleFactor: 4,
+        ),
+        SizedBox(height: 30),
+        Expanded(
+            flex: 1,
+            child: Image.asset('images/badminton.png', fit: BoxFit.contain)),
+        Container(
+          decoration: new BoxDecoration(
+            image: new DecorationImage(
+              image: new AssetImage(
+                'assets/images/badminton.png',
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Divider(
+          height: 40,
+          thickness: 5,
+        ),
+        Text(
+          '🕸️',
+          textScaleFactor: 4,
+        ),
+        SizedBox(height: 30),
+        Expanded(
+            flex: 1,
+            child: DecorationImage(
+                child: Image.asset(
+              'images/spikeball.png',
+              fit: BoxFit.contain,
+            )))
+      ],
     );
   }
 }

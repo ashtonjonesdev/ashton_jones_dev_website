@@ -10,7 +10,7 @@ final List<Project> projects = [
       googlePlayStoreLink:
       'https://play.google.com/store/apps/details?id=dev.ashtonjones.reply_flutter',
   appleAppStoreLink: 'https://apps.apple.com/us/app/id1522893504',
-  dateLaunched: 'July 2020', projectGIFResource: 'images/_reply.gif', technologiesUsed: ['flutter', 'dart', 'fluttersdk', 'provider', 'cloud firestore', 'firebase authentication', 'mvvm architecture', 'material design'
+  dateLaunched: 'July 2020', projectGIFResource: 'images/_replyDemo.gif', technologiesUsed: ['flutter', 'dart', 'fluttersdk', 'provider', 'cloud firestore', 'firebase authentication', 'mvvm architecture', 'material design'
   ]),
   Project(
       title: 'Reply',

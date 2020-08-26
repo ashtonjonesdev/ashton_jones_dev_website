@@ -138,6 +138,17 @@ class _ConsultingTabState extends State<ConsultingTab> {
                         .headline5
                         .copyWith(color: Colors.grey.shade700),
                   ),
+                  SizedBox(height: 40.0),
+                  Container(
+                      height: 200,
+                      padding: const EdgeInsets.only(left: 30.0, right:30.0),
+                      child: FlareActor(
+                        "assets/computer_programmer.flr",
+                        shouldClip: false,
+                        alignment: Alignment.bottomCenter,
+                        fit: BoxFit.contain,
+                        controller: _computerProgrammerController,
+                      )),
                   SizedBox(height: 20.0),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 48),
@@ -210,32 +221,24 @@ class _ConsultingTabState extends State<ConsultingTab> {
                     ),
                   ),
                   SizedBox(height: 40.0),
-                  Material(
-                    borderRadius: BorderRadius.circular(30.0),
-                    color: kPrimaryColor,
-                    child: MaterialButton(
-                      minWidth: 400,
-                      child: Text(
-                        "SUBMIT",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.white),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
+                    child: Material(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: kPrimaryColor,
+                      child: MaterialButton(
+                        minWidth: 400,
+                        child: Text(
+                          "SUBMIT",
+                          style: Theme.of(context)
+                              .textTheme
+                              .button
+                              .copyWith(color: Colors.white),
+                        ),
+                        onPressed: validateAndSendEmail,
                       ),
-                      onPressed: validateAndSendEmail,
                     ),
                   ),
-                  SizedBox(height: 40.0),
-                  Container(
-                      height: 200,
-                      padding: const EdgeInsets.only(left: 30.0, right:30.0),
-                      child: FlareActor(
-                        "assets/computer_programmer.flr",
-                        shouldClip: false,
-                        alignment: Alignment.bottomCenter,
-                        fit: BoxFit.contain,
-                        controller: _computerProgrammerController,
-                      )),
                 ],
               ),
             ),
