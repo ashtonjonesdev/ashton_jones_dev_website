@@ -30,6 +30,7 @@ class AboutTab extends StatelessWidget {
                     ),
                     Text(
                       'Ashton Jones',
+                      textAlign: TextAlign.center,
                       textScaleFactor: 4,
                     ),
                     SizedBox(
@@ -298,6 +299,8 @@ class AboutTab extends StatelessWidget {
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           flex: 1,
@@ -397,6 +400,7 @@ class AboutTab extends StatelessWidget {
                     Text(
                       'Ashton Jones',
                       textScaleFactor: 4,
+                      textAlign: TextAlign.center,
                     ),
                     SizedBox(
                       height: 20,
