@@ -36,7 +36,7 @@ class AboutTab extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻️ Stoic',
+                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘‍♂️ Stoic',
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
