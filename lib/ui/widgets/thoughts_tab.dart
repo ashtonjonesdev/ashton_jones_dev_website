@@ -19,7 +19,7 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
     return Column(
       children: [
         Container(
-          height: 150,
+          height: 75,
           child: FlareActor(
             'assets/writing.flr',
             controller: _writingPencilController,

@@ -23,7 +23,7 @@ class _ProjectsTabState extends State<ProjectsTab> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Container(
-            height: 150,
+            height: 75,
             child: FlareActor(
               'assets/jump_and_phone.flr',
               shouldClip: false,

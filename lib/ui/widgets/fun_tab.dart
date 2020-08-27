@@ -17,7 +17,7 @@ class _FunTabState extends State<FunTab> {
       child: Column(
         children: [
           Container(
-            height: 150,
+            height: 75,
             child: FlareActor(
               'assets/smile_face.flr',
               controller: _smileFaceController,
