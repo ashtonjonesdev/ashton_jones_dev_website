@@ -71,10 +71,8 @@ class ProjectWidget extends StatelessWidget {
             ),
             SizedBox(height: 40),
             Image.asset(_project.projectGIFResource),
-            // TODO: Figure out how to eliminate the space when there is no store badge
             InkWell( onTap: openGooglePlayStoreLink, child: Image.asset(_project.googlePlayStoreLink != null ? 'images/google_play_store_badge.png' : 'images/small_placeholder.png',  width: 200, height: 100,)),
             InkWell(onTap: openAppleAppStoreLink, child: Image.asset(_project.appleAppStoreLink != null ? 'images/apple_app_store.png' : 'images/small_placeholder.png', width: 200, height: 100,)),
-
           ],
         )
       ),

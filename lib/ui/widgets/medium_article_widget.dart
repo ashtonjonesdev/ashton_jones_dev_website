@@ -38,7 +38,6 @@ class _MediumArticleWidgetState extends State<MediumArticleWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // TODO: Make sizing of article images consistent
               FittedBox(fit: BoxFit.fitWidth, child: Image.asset(widget._mediumArticle.imageResource, height: 300,)),
               SizedBox(height: 20),
               Text(widget._mediumArticle.title, style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,),
