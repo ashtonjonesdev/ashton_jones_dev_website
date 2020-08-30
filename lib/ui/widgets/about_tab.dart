@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
-
 import 'package:url_launcher/url_launcher.dart';
+import 'package:ashton_jones_dev_website/core/utils/HoverExtentions.dart';
 
 class AboutTab extends StatelessWidget {
   _launchUrl(String urlToLaunch) async {
@@ -28,11 +28,13 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                      'Ashton Jones',
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 4,
-                    ),
+                    Container(
+                      child: Text(
+                        'Ashton Jones',
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 4,
+                      ),
+                    ).showCursorOnHover,
                     SizedBox(
                       height: 20,
                     ),

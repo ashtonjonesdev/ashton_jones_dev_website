@@ -2,6 +2,8 @@ import 'package:ashton_jones_dev_website/core/utils/SmileFaceController.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ashton_jones_dev_website/core/utils/HoverExtentions.dart';
+
 
 class FunTab extends StatefulWidget {
   @override
@@ -26,9 +28,11 @@ class _FunTabState extends State<FunTab> {
               alignment: Alignment.bottomCenter,
             ),
           ),
-          Text(
-            '🏸',
-            textScaleFactor: 4,
+          Container(
+            child: Text(
+              '🏸',
+              textScaleFactor: 4,
+            ),
           ),
           SizedBox(height: 30),
           Row(
