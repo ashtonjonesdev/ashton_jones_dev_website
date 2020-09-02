@@ -21,7 +21,7 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
         Container(
           height: 75,
           child: FlareActor(
-            'assets/writing.flr',
+            'assets/main-write.flr',
             controller: _writingPencilController,
             shouldClip: false,
             fit: BoxFit.contain,

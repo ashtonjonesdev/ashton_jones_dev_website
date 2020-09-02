@@ -12,7 +12,6 @@ class ProjectsTab extends StatefulWidget {
 
 class _ProjectsTabState extends State<ProjectsTab> {
 
-  WritingPencilController _writingPencilController = WritingPencilController();
   JumpAndPhoneController _jumpAndPhoneController = JumpAndPhoneController();
 
   @override

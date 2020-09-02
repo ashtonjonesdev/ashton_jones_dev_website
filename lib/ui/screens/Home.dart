@@ -33,6 +33,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('$_appBarTitle', textScaleFactor: 2,),
         centerTitle: true,
+        toolbarHeight: 50.0,
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: tabWidgets.elementAt(_selectedIndex),

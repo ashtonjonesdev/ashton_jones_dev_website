@@ -9,7 +9,7 @@ class WritingPencilController extends FlareControls {
   @override
   void initialize(FlutterActorArtboard artboard) {
     super.initialize(artboard);
-    play("Go");
+    play("writing");
   }
 
   @override

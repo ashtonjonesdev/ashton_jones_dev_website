@@ -124,7 +124,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
       child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(58.0),
+            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 40),
             child: Material(
               borderRadius: BorderRadius.circular(16),
               elevation: 16,
@@ -220,9 +220,9 @@ class _ConsultingTabState extends State<ConsultingTab> {
                       controller: _messageController,
                     ),
                   ),
-                  SizedBox(height: 40.0),
+                  SizedBox(height: 10.0),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
+                    padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 32),
                     child: Material(
                       borderRadius: BorderRadius.circular(30.0),
                       color: kPrimaryColor,
