@@ -1,4 +1,5 @@
 import 'package:ashton_jones_dev_website/core/data/model/medium_article.dart';
+import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
@@ -35,37 +36,45 @@ class _MediumArticleWidgetState extends State<MediumArticleWidget> {
             _isHovering = isHovering;
           });
         }
+        else {
+          setState(() {
+            _isHovering = isHovering;
+          });
+        }
       },
       onTap: openMediumArticleLink,
-      child: Card(
-        color: _isHovering ? Colors.grey.shade200 : Colors.white,
-        elevation: 16,
-        margin: EdgeInsets.fromLTRB(50, 48, 50, 48),
-        child:Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FittedBox(fit: BoxFit.fitWidth, child: Image.asset(widget._mediumArticle.imageResource, height: 300, width: 400,)),
-                SizedBox(height: 20),
-                Text(widget._mediumArticle.title, style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,),
-                SizedBox(height: 10),
-                Text(widget._mediumArticle.subtitle, textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(fontSize: 20),),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: Icon(Icons.date_range),
-                    ),
-                    Text(widget._mediumArticle.datePublished, style: Theme.of(context).textTheme.caption.copyWith(color: Colors.grey.shade700),),
-                  ],
-                ),
-                SizedBox(height: 40),
-              ],
-            )
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Card(
+          color: _isHovering ? Colors.grey.shade300 : Colors.white,
+          elevation: 16,
+          margin: EdgeInsets.fromLTRB(50, 48, 50, 48),
+          child:Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FittedBox(fit: BoxFit.fitWidth, child: Image.asset(widget._mediumArticle.imageResource, height: 300, width: 400,)),
+                  SizedBox(height: 20),
+                  Text(widget._mediumArticle.title, style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,),
+                  SizedBox(height: 10),
+                  Text(widget._mediumArticle.subtitle, textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(fontSize: 20),),
+                  SizedBox(height: 20,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Icon(Icons.date_range),
+                      ),
+                      Text(widget._mediumArticle.datePublished, style: Theme.of(context).textTheme.caption.copyWith(color: Colors.grey.shade700),),
+                    ],
+                  ),
+                  SizedBox(height: 40),
+                ],
+              )
+          ),
         ),
       ),
     );

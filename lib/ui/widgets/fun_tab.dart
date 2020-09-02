@@ -61,12 +61,11 @@ class _FunTabState extends State<FunTab> {
             children: [
               Expanded(flex: 1,child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Image.asset('images/spikeball.png'),
+                child: Image.asset('images/spikeball_play.png'),
               )),
-              // TODO: Add personal Spikeball image
               Expanded(flex: 1,child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Image.asset('images/badminton2.png'),
+                child: Image.asset('images/spikeball_net.png'),
               )),
             ],
           ),

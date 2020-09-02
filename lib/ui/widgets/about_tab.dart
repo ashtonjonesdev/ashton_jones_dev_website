@@ -130,7 +130,7 @@ class AboutTab extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         _launchUrl(
-                            'https://www.ashtonjones.dev/images/GoogleCertifiedAndroidDeveloper.pdf');
+                            'https://images.credential.net/embed/x146el0j.png');
                       },
                       child: Text(
                         'Credentials 🔖',
@@ -499,7 +499,7 @@ class AboutTab extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         _launchUrl(
-                            'https://www.ashtonjones.dev/images/GoogleCertifiedAndroidDeveloper.pdf');
+                            'https://images.credential.net/embed/x146el0j.png');
                       },
                       child: Text(
                         'Credentials 🔖',
@@ -513,10 +513,19 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    Image.asset(
-                      'images/associate_android_developer_badge.png',
-                      height: 200,
-                      width: 200,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset(
+                          'images/associate_android_developer_badge.png',
+                          height: 200,
+                          width: 200,
+                        ),
+                        Image.asset(
+                          'images/google_certification.png',
+                          height: 200,
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 30,
