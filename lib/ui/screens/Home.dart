@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
             label: Text('Contact me', style: Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.black),
                 overflow: TextOverflow.visible, softWrap: false),
             onPressed: () => html.window
-                .open('mailto:ashtonjonesdev@gmail.com', 'ashtonjonesdev'),
+                .open('mailto:ashtonjonesdev@gmail.com?subject=Hi%20Ashton!', 'ashtonjonesdev'),
           ),
         ],
       ),
