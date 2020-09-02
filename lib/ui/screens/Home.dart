@@ -39,53 +39,59 @@ class _HomeState extends State<Home> {
       body: Center(
         child: tabWidgets.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('About'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chrome_reader_mode),
-            title: Text('Thoughts'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.mobile_screen_share),
-            title: Text('Projects'),
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.build), title: Text('Consulting')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.mood), title: Text('Fun')),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-            switch(index) {
-              case 0:
-                _appBarTitle = '👨🏻‍💻';
-                break;
-              case 1:
-                _appBarTitle = '✍🏼';
-                break;
-              case 2:
-                _appBarTitle = '📱';
-                break;
-              case 3:
-                _appBarTitle = '🛠';
-                break;
-              case 4:
-                _appBarTitle = '🕹';
-                break;
-              default:
-                break;
-            }
-          });
-        },
-        showUnselectedLabels: true,
-        selectedItemColor: Theme.of(context).accentColor,
-        unselectedItemColor: Theme.of(context).disabledColor,
+      bottomNavigationBar: Container(
+        height: 48,
+        child: BottomNavigationBar(
+          selectedFontSize: 12,
+          unselectedFontSize: 10,
+          iconSize: 20,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              title: Text('About'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chrome_reader_mode),
+              title: Text('Thoughts'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.mobile_screen_share),
+              title: Text('Projects'),
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.build), title: Text('Consulting')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.mood), title: Text('Fun')),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+              switch(index) {
+                case 0:
+                  _appBarTitle = '👨🏻‍💻';
+                  break;
+                case 1:
+                  _appBarTitle = '✍🏼';
+                  break;
+                case 2:
+                  _appBarTitle = '📱';
+                  break;
+                case 3:
+                  _appBarTitle = '🛠';
+                  break;
+                case 4:
+                  _appBarTitle = '🕹';
+                  break;
+                default:
+                  break;
+              }
+            });
+          },
+          showUnselectedLabels: true,
+          selectedItemColor: Theme.of(context).accentColor,
+          unselectedItemColor: Theme.of(context).disabledColor,
+        ),
       ),
     );
   }

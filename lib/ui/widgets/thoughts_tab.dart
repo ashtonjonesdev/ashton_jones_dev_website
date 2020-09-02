@@ -16,25 +16,31 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 75,
-          child: FlareActor(
-            'assets/main-write.flr',
-            controller: _writingPencilController,
-            shouldClip: false,
-            fit: BoxFit.contain,
-            alignment: Alignment.bottomCenter,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            height: 75,
+            child: FlareActor(
+              'assets/main-write.flr',
+              controller: _writingPencilController,
+              shouldClip: false,
+              fit: BoxFit.contain,
+              alignment: Alignment.bottomCenter,
+            ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
-              itemCount: mediumArticles.length,
-              itemBuilder: (context, index) =>
-                  MediumArticleWidget(mediumArticles[index])),
-        ),
-      ],
+          Flexible(
+            fit: FlexFit.loose,
+            child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: mediumArticles.length,
+                itemBuilder: (context, index) =>
+                    MediumArticleWidget(mediumArticles[index])),
+          ),
+        ],
+      ),
     );
   }
 }

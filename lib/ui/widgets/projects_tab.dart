@@ -11,33 +11,38 @@ class ProjectsTab extends StatefulWidget {
 }
 
 class _ProjectsTabState extends State<ProjectsTab> {
-
   JumpAndPhoneController _jumpAndPhoneController = JumpAndPhoneController();
 
   @override
   Widget build(BuildContext context) {
-
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Container(
-            height: 75,
-            child: FlareActor(
-              'assets/jump_and_phone.flr',
-              shouldClip: false,
-              fit: BoxFit.contain,
-              alignment: Alignment.bottomCenter,
-              controller: _jumpAndPhoneController,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Container(
+              height: 75,
+              child: FlareActor(
+                'assets/jump_and_phone.flr',
+                shouldClip: false,
+                fit: BoxFit.contain,
+                alignment: Alignment.bottomCenter,
+                controller: _jumpAndPhoneController,
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(itemCount: projects.length,itemBuilder: (context, index) => ProjectWidget(projects[index])),
-        ),
-      ],
+          Flexible(
+            fit: FlexFit.loose,
+            child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: projects.length,
+                itemBuilder: (context, index) =>
+                    ProjectWidget(projects[index])),
+          ),
+        ],
+      ),
     );
-
   }
 }
-
