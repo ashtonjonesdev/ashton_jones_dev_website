@@ -1,9 +1,9 @@
-
 import 'package:ashton_jones_dev_website/ui/widgets/about_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/consulting_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/projects_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/thoughts_tab.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 import '../widgets/fun_tab.dart';
 
@@ -13,9 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   String _appBarTitle = '👨🏻‍💻';
-
 
   static List<Widget> tabWidgets = <Widget>[
     AboutTab(),
@@ -31,10 +29,22 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$_appBarTitle', textScaleFactor: 2,),
+        title: Text(
+          '$_appBarTitle',
+          textScaleFactor: 2,
+        ),
         centerTitle: true,
-        toolbarHeight: 50.0,
+        toolbarHeight: 48.0,
         backgroundColor: Colors.white,
+        actions: [
+          FlatButton.icon(
+            icon: Icon(Icons.mail),
+            label: Text('Contact me', style: Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.black),
+                overflow: TextOverflow.visible, softWrap: false),
+            onPressed: () => html.window
+                .open('mailto:ashtonjonesdev@gmail.com', 'ashtonjonesdev'),
+          ),
+        ],
       ),
       body: Center(
         child: tabWidgets.elementAt(_selectedIndex),
@@ -60,14 +70,13 @@ class _HomeState extends State<Home> {
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.build), title: Text('Consulting')),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.mood), title: Text('Fun')),
+            BottomNavigationBarItem(icon: Icon(Icons.mood), title: Text('Fun')),
           ],
           currentIndex: _selectedIndex,
           onTap: (index) {
             setState(() {
               _selectedIndex = index;
-              switch(index) {
+              switch (index) {
                 case 0:
                   _appBarTitle = '👨🏻‍💻';
                   break;
