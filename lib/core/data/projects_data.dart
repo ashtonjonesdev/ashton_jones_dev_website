@@ -7,7 +7,7 @@ final List<Project> projects = [
     shortDescription: 'My portfolio website- this site!',
     longDescription: 'I built my portfolio website using Flutter for Web.\n\nI learned how to build for the Web using Flutter, make UI elements flexible to adapt to different screen sizes, resize images and provide consistent dimensions, and implement complex Flare animations.',
     dateLaunched: 'August 2020',
-    technologiesUsed: ['flutter', 'dart', 'flutter sdk', 'flare' 'material design'],
+    technologiesUsed: ['flutter', 'dart', 'flutter sdk', 'flare', 'material design'],
     projectIconResource: 'images/ash.png'
   ),
   Project(
