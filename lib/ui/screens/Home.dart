@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           '$_appBarTitle',
-          textScaleFactor: 2,
+          textScaleFactor: 1.75,
         ),
         centerTitle: true,
         toolbarHeight: 48.0,
