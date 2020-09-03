@@ -223,6 +223,11 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
+                    Image.asset(
+                      'images/tech_day_me.png',
+                      width: 200,
+                    ),
+                    SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
                       child: Text(
@@ -615,6 +620,22 @@ class AboutTab extends StatelessWidget {
                             .headline6
                             .copyWith(color: Colors.blue, height: 1.1),
                       ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset(
+                          'images/tech_day_me.png',
+                          width: 400,
+                        ),
+                        Image.asset(
+                          'images/tech_day_setup.png',
+                          width: 400,
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 30,
