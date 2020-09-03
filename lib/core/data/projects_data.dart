@@ -2,7 +2,7 @@ import 'model/project.dart';
 
 final List<Project> projects = [
   Project(
-    title: 'Ashton Jones Dev Website',
+    title: 'Portfolio Website',
     projectGIFResource: 'images/ashton_jones_dev_website.gif',
     shortDescription: 'My portfolio website- this site!',
     longDescription: 'I built my portfolio website using Flutter for Web.\n\nI learned how to build for the Web using Flutter, make UI elements flexible to adapt to different screen sizes, resize images and provide consistent dimensions, and implement complex Flare animations.',

@@ -43,7 +43,7 @@ class ProjectWidget extends StatelessWidget {
               children: [
                 Image.asset(_project.projectIconResource, width: 100, height: 100,),
                 SizedBox(width: 10),
-                Text(_project.title, style: Theme.of(context).textTheme.headline4,),
+                Flexible(child: Text(_project.title, style: Theme.of(context).textTheme.headline4,)),
               ],
             ),
             Text(_project.shortDescription, textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(color: kPrimaryColorLight, fontSize: 20),),
