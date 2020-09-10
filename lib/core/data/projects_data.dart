@@ -5,7 +5,7 @@ final List<Project> projects = [
     title: 'Portfolio Website',
     projectGIFResource: 'images/ashton_jones_dev_website.gif',
     shortDescription: 'My portfolio website- this site!',
-    longDescription: 'I built my portfolio website using Flutter for Web.\n\nI learned how to build for the Web using Flutter, make UI elements flexible to adapt to different screen sizes, resize images and provide consistent dimensions, and implement complex Flare animations.',
+    longDescription: 'I built my portfolio website using Flutter for Web. I learned how to build for the Web using Flutter, make UI elements flexible to adapt to different screen sizes, resize images and provide consistent dimensions, and implement complex Flare animations.',
     dateLaunched: 'August 2020',
     technologiesUsed: ['flutter', 'dart', 'flutter sdk', 'flare', 'material design'],
     projectIconResource: 'images/ash.png'
@@ -15,7 +15,7 @@ final List<Project> projects = [
       projectIconResource: 'images/reply_app_icon.png',
       shortDescription:
       'Easily send your own custom, pre-defined messages through any platform',
-      longDescription: 'This is a rebuild of my previous app “Reply” that I built using Flutter to make it available on both iOS and Android.\n\nI learned how to properly manage app state, sign in users with Apple, implement an observer pattern, publish an app to the Apple App Store, and implement MVVM architecture in a Flutter application.\n\nThis project shows that I am able to build complete apps for iOS as well as Android.',
+      longDescription: 'This is a rebuild of my previous app “Reply” that I built using Flutter to make it available on both iOS and Android. I learned how to properly manage app state, sign in users with Apple, implement an observer pattern, publish an app to the Apple App Store, and implement MVVM architecture in a Flutter application. This project shows that I am able to build complete apps for iOS as well as Android.',
       googlePlayStoreLink:
       'https://play.google.com/store/apps/details?id=dev.ashtonjones.reply_flutter',
   appleAppStoreLink: 'https://apps.apple.com/us/app/id1522893504',
