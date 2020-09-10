@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:html' as html;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ashton_jones_dev_website/core/utils/HoverExtentions.dart';
@@ -39,7 +40,7 @@ class AboutTab extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘‍♂️ Stoic',
+                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻‍♂️️ Stoic',
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
@@ -174,7 +175,7 @@ class AboutTab extends StatelessWidget {
                         _launchUrl('https://medium.com/@TJgrapes');
                       },
                       child: Text(
-                        'Technical Writing ✍🏼',
+                        'Technical Writing ✍',
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
@@ -420,7 +421,7 @@ class AboutTab extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻️ Stoic',
+                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻‍♂️ Stoic',
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
@@ -564,7 +565,7 @@ class AboutTab extends StatelessWidget {
                         _launchUrl('https://medium.com/@TJgrapes');
                       },
                       child: Text(
-                        'Technical Writing ✍🏼',
+                        'Technical Writing ✍',
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
@@ -808,6 +809,8 @@ class AboutTab extends StatelessWidget {
             ),
           );
   }
+
+
 }
 
 //
