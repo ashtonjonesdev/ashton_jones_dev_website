@@ -1,6 +1,6 @@
 # 👨🏻‍💻 Ashton Jones Dev Website
 
-<p align="center"><img src="./gif/spikechat_demo.gif"></p>
+<p align="center"><img src="./gif/website_demo.gif"></p>
 
 -------
 My portfolio website built with Flutter!
@@ -40,7 +40,9 @@ Copyright 2020 Ashton Jones
 
 
 ## 📸 Screenshots
-<img src="./screenshots/spikechat_main_screenshot.jpg" width="30%" height="30%">&ensp;<img src="./screenshots/Screenshot_20200912-124429.jpg" width="30%" height="30%">&ensp;<img src="./screenshots/Screenshot_20200912-124122.jpg" width="30%" height="30%">&ensp;
+<img src="./screenshots/Screenshot_20200913-110804_Chrome.jpg" width="30%" height="30%">&ensp;<img src="./screenshots/Screenshot_20200913-110814_Chrome.jpg" width="30%" height="30%">&ensp;<img src="./screenshots/Screenshot_20200913-110833_Chrome.jpg" width="30%" height="30%">&ensp;
+------
+<img src="./screenshots/Screenshot_20200913-110841_Chrome.jpg" width="30%" height="30%">&ensp;<img src="./screenshots/Screenshot_20200913-110850_Chrome.jpg" width="30%" height="30%">&ensp;<img src="./screenshots/Screenshot_20200913-110900_Chrome.jpg" width="30%" height="30%">&ensp;
 
 
 
