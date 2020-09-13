@@ -9,9 +9,10 @@ class Project {
   String projectGIFResource;
   String googlePlayStoreLink;
   String appleAppStoreLink;
+  String githubLink;
   String dateLaunched;
   List<String> technologiesUsed;
 
   Project({@required this.title, @required this.shortDescription, @required this.projectIconResource, @required this.dateLaunched, this.technologiesUsed, this.longDescription,
-    this.projectGIFResource, this.googlePlayStoreLink, this.appleAppStoreLink});
+    this.projectGIFResource, this.googlePlayStoreLink, this.appleAppStoreLink, this.githubLink});
 }

@@ -25,6 +25,12 @@ class ProjectWidget extends StatelessWidget {
           _project.appleAppStoreLink, 'Apple App Store Link');
     }
   }
+  openGithubLink() {
+    if(_project.githubLink != null) {
+      html.window.open(
+          _project.githubLink, 'Github Link');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +78,7 @@ class ProjectWidget extends StatelessWidget {
             ),
             SizedBox(height: 40),
             Image.asset(_project.projectGIFResource, height: 500,),
+            InkWell( onTap: openGithubLink, child: Image.asset(_project.githubLink != null ? 'images/github_logo.png' : 'images/small_placeholder.png',  width: 200, height: 100,)),
             InkWell( onTap: openGooglePlayStoreLink, child: Image.asset(_project.googlePlayStoreLink != null ? 'images/google_play_store_badge.png' : 'images/small_placeholder.png',  width: 200, height: 100,)),
             InkWell(onTap: openAppleAppStoreLink, child: Image.asset(_project.appleAppStoreLink != null ? 'images/apple_app_store.png' : 'images/small_placeholder.png', width: 200, height: 100,)),
           ],
