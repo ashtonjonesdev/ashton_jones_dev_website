@@ -8,6 +8,6 @@ class MediumArticle {
   String link;
   String datePublished;
 
-  MediumArticle({@required this.title, @required this.subtitle, @required this.imageResource, @required this.link,
+  MediumArticle({@required this.title, this.subtitle, @required this.imageResource, @required this.link,
     @required this.datePublished});
 }
