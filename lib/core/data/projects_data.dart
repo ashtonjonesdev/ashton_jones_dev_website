@@ -2,6 +2,16 @@ import 'model/project.dart';
 
 final List<Project> projects = [
   Project(
+      title: 'Favorite Countries',
+      projectGIFResource: 'images/favorite_countries.gif',
+      shortDescription: 'Android app to keep track of your favorite countries and what you like about them',
+      longDescription: 'Native Android app built with Kotlin',
+      dateLaunched: 'October 2020',
+      technologiesUsed: ['android sdk', 'kotlin', 'material design'],
+      githubLink: 'https://github.com/ashtonjonesdev/favorite_countries',
+      projectIconResource: 'images/favorite_countries_icon.png'
+  ),
+  Project(
       title: 'SpikeChat',
       projectGIFResource: 'images/spikechat_demo.gif',
       shortDescription: 'A fully functional chat application built with Flutter and Stream!',
