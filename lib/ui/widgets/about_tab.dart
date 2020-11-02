@@ -39,8 +39,8 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻‍♂️️ Stoic',
+                    SelectableText(
+                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻‍♂️ Stoic',
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
@@ -82,6 +82,14 @@ class AboutTab extends StatelessWidget {
                             flex: 1,
                             child: Image.asset('images/dart.png',
                                 width: 100, height: 100)),
+                        Expanded(
+                            flex: 1,
+                            child: Image.asset('images/kotlin.png',
+                                width: 100, height: 100)),
+                        Expanded(
+                            flex: 1,
+                            child: Image.asset('images/firebase.png',
+                                width: 100, height: 100)),
                       ],
                     ),
                     Divider(
@@ -114,8 +122,8 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(32.0),
-                      child: Text(
-                          'My expertise is in Android and iOS mobile app development. I can build cross-platform apps for Android and iOS using Flutter and native apps for Android using Java and the Android SDK.\n\nI have built complete Flutter and Android apps from scratch and published them to the Google Play Store and the Apple App Store.\n\nThe primary technologies I use are the Flutter SDK, Android SDK, Java, and Dart.\n\nI have experience using Firebase Cloud Firestore, Firebase authentication, MVVM architecture, authentication with Google and Apple, Android Architecture Components, observer patterns (Provider- Flutter; Live Data & Observer- Android), and Material Design.',
+                      child: SelectableText(
+                          'My expertise is in Android and iOS mobile app development. I can build cross-platform apps for Android and iOS using Flutter and native apps for Android using Java/Kotlin and the Android SDK.\n\nI have built complete Flutter and Android apps from scratch and published them to the Google Play Store and the Apple App Store.\n\nThe primary technologies I use are the Flutter SDK, Android SDK, Java, Dart, Kotlin, and Firebase.\n\nI have experience using Firebase Cloud Firestore, Firebase Authentication, Firebase Cloud Messaging, Firebase Cloud Functions, MVVM Architecture, Authentication with Google and Apple, Android Architecture Components, Provider Pattern for Flutter, Live Data and Observer Pattern for Android, CI/CD Pipeline Integration, Database Design and Implementation, UI Design, and Material Design.',
                           style: Theme.of(context)
                               .textTheme
                               .bodyText2
@@ -155,8 +163,8 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
-                        'I earned an Associate Android Developer certification from the Google Developers Team, a course to help developers master core Android development skills and become competent Android engineers. \n\nBy the end of the course, I created over 30 bite-sized Android applications, created an Android game, mastered core Android development and mobile development best practices, and became 1 of 153 Google Certified Android Engineers in North America.',
+                      child: SelectableText(
+                        'I earned an Associate Android Developer certification from the Google Developers Team, a course to help developers master core Android development skills and become competent Android engineers. \n\nBy the end of the course, I created over 30 bite-sized Android applications, created an Android game, mastered core Android development and mobile development best practices, and became 1 of 155 Google Certified Android Engineers in North America.',
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2
@@ -195,8 +203,8 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
-                          'I write technical articles on Flutter on Android and enjoy educating others. My work has been published in "Firebase Developers", a Medium publication run by the Google Firebase team.',
+                      child: SelectableText(
+                          'I love learning, writing technical posts, and educating others on Flutter, Android, and Firebase. My articles have been published in multiple publications, including “Firebase Developers”, the official publication of Firebase run by the Google Firebase team, "Flutter Developers, and "Android Pub."',
                           style: Theme.of(context)
                               .textTheme
                               .bodyText2
@@ -231,7 +239,7 @@ class AboutTab extends StatelessWidget {
                     SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
+                      child: SelectableText(
                           'I have first hand experience building a startup and am a member of Domi Station. I am involved in the Tallahassee startup community, and a board member of Entrepreneurship Tallahassee, an organization which schedules Startup Week Tallahassee and promotes entrepreneurship.',
                           style: Theme.of(context)
                               .textTheme
@@ -420,7 +428,7 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    SelectableText(
                       '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻‍♂️ Stoic',
                       style: Theme.of(context)
                           .textTheme
@@ -453,15 +461,23 @@ class AboutTab extends StatelessWidget {
                             )),
                         Expanded(
                             flex: 1,
-                            child: Image.asset('images/java.png',
-                                width: 100, height: 100)),
-                        Expanded(
-                            flex: 1,
                             child: Image.asset('images/flutter_logo.png',
                                 width: 100, height: 100)),
                         Expanded(
                             flex: 1,
+                            child: Image.asset('images/java.png',
+                                width: 100, height: 100)),
+                        Expanded(
+                            flex: 1,
                             child: Image.asset('images/dart.png',
+                                width: 100, height: 100)),
+                        Expanded(
+                            flex: 1,
+                            child: Image.asset('images/kotlin.png',
+                                width: 100, height: 100)),
+                        Expanded(
+                            flex: 1,
+                            child: Image.asset('images/firebase.png',
                                 width: 100, height: 100)),
                       ],
                     ),
@@ -495,8 +511,8 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
-                          'My expertise is in Android and iOS mobile app development. I can build cross-platform apps for Android and iOS using Flutter and native apps for Android using Java and the Android SDK.\n\nI have built complete Flutter and Android apps from scratch and published them to the Google Play Store and the Apple App Store.\n\nThe primary technologies I use are the Flutter SDK, Android SDK, Java, and Dart.\n\nI have built apps using Firebase Cloud Firestore, Firebase Authentication, MVVM Architecture, Google Authentication, Apple Authentication, Android Architecture Components, Provider pattern (Flutter), Live Data & Observer pattern (Android), and Material Design.',
+                      child: SelectableText(
+                          'My expertise is in Android and iOS mobile app development. I can build cross-platform apps for Android and iOS using Flutter and native apps for Android using Java/Kotlin and the Android SDK.\n\nI have built complete Flutter and Android apps from scratch and published them to the Google Play Store and the Apple App Store.\n\nThe primary technologies I use are the Flutter SDK, Android SDK, Java, Dart, Kotlin, and Firebase.\n\nI have experience using Firebase Cloud Firestore, Firebase Authentication, Firebase Cloud Messaging, Firebase Cloud Functions, MVVM Architecture, Authentication with Google and Apple, Android Architecture Components, Provider Pattern for Flutter, Live Data and Observer Pattern for Android, CI/CD Pipeline Integration, Database Design and Implementation, UI Design, and Material Design.',
                           style: Theme.of(context)
                               .textTheme
                               .bodyText2
@@ -545,8 +561,8 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
-                        'I earned an Associate Android Developer certification from the Google Developers Team, a course to help developers master core Android development skills and become competent Android engineers. \n\nBy the end of the course, I created over 30 bite-sized Android applications, created an Android game, mastered core Android development and mobile development best practices, and became 1 of 153 Google Certified Android Engineers in North America.',
+                      child: SelectableText(
+                        'I earned an Associate Android Developer certification from the Google Developers Team, a course to help developers master core Android development skills and become competent Android engineers. \n\nBy the end of the course, I created over 30 bite-sized Android applications, created an Android game, mastered core Android development and mobile development best practices, and became 1 of 155 Google Certified Android Engineers in North America.',
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2
@@ -594,8 +610,8 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
-                          'I write technical articles on Flutter on Android and enjoy educating others. My work has been published in "Firebase Developers", a Medium publication run by the Google Firebase team.',
+                      child: SelectableText(
+                          'I love learning, writing technical posts, and educating others on Flutter, Android, and Firebase. My articles have been published in multiple publications, including “Firebase Developers”, the official publication of Firebase run by the Google Firebase team, "Flutter Developers, and "Android Pub."',
                           style: Theme.of(context)
                               .textTheme
                               .bodyText2
@@ -643,7 +659,7 @@ class AboutTab extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Text(
+                      child: SelectableText(
                           'I have first hand experience building a startup and am a member of Domi Station. I am involved in the Tallahassee startup community, and a board member of Entrepreneurship Tallahassee, an organization which schedules Startup Week Tallahassee and promotes entrepreneurship.',
                           style: Theme.of(context)
                               .textTheme
@@ -809,8 +825,6 @@ class AboutTab extends StatelessWidget {
             ),
           );
   }
-
-
 }
 
 //
