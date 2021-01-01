@@ -2,6 +2,7 @@ import 'medium_article.dart';
 
 final List<MediumArticle> mediumArticles = [
   MediumArticle(title: 'From 0 to Android Engineer', subtitle: 'How I became a Google-Certified Android Engineer in less than a year with no programming background', datePublished: 'Feb 1, 2020', imageResource: 'images/associate_android_developer.png', link: 'https://android.jlelse.eu/from-0-to-android-engineer-6f9019395b2a?source=---------2------------------&gi=48c4881127b1'),
+  MediumArticle(title: 'On 2020', subtitle: 'My personal 2020 reflections', datePublished: 'Dec 29, 2020', imageResource: 'images/on-2020.jpg', link: 'https://tjgrapes.medium.com/on-2020-c06676e960de'),
   MediumArticle(title: 'Building a Flutter Chat Application with Stream: Building the App (Part 3)', datePublished: 'Oct 14, 2020', imageResource: 'images/spikechatmedium.png', link: 'https://medium.com/flutter-community/building-a-flutter-chat-application-with-stream-building-the-app-part-3-f18f9c810ba8'),
   MediumArticle(title: 'Building a Flutter Chat Application with Stream: Configuration (Part 2)', datePublished: 'Oct 13, 2020', imageResource: 'images/spikechatmedium.png', link: 'https://medium.com/flutter-community/building-a-flutter-chat-application-with-stream-configuration-part-2-de92959ce7'),
   MediumArticle(title: 'Building a Flutter Chat Application with Stream: Introduction (Part 1)', datePublished: 'Oct 12, 2020', imageResource: 'images/spikechatmedium.png', link: 'https://medium.com/flutter-community/building-a-flutter-chat-application-with-stream-introduction-part-1-901977551169'),
