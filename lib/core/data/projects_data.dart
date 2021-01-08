@@ -2,10 +2,20 @@ import 'model/project.dart';
 
 final List<Project> projects = [
   Project(
+      title: 'Ashton Jones\' Medium Feed',
+      projectGIFResource: 'images/ashton_jones_medium_feed_demo.gif',
+      shortDescription: 'A Flutter app containing an RSS feed of my Medium articles',
+      longDescription: 'I decided to experiment with Medium\'s RSS feed, because it would make creating an MVP for a Flutter app I am working on effortless. I learned how to access data from an RSS feed, parse RSS feed data, and extract data from a feed and display it in an application',
+      dateLaunched: 'January 2021',
+      technologiesUsed: ['flutter', 'dart', 'material design'],
+      githubLink: 'https://github.com/ashtonjonesdev/ashton_jones_medium_feed',
+      projectIconResource: 'images/ashton_jones_medium_feed_app_icon.png'
+  ),
+  Project(
       title: 'Favorite Countries',
       projectGIFResource: 'images/favorite_countries.gif',
       shortDescription: 'Android app to keep track of your favorite countries and what you like about them',
-      longDescription: 'Native Android app built with Kotlin',
+      longDescription: 'I decided to build a travel app to help me keep a list of countries I would like to visit and why. I learned how to build native Android apps using Kotlin, implement search within an app, how to implement Java/Kotlin interoperability, and how to implement dynamic theme support to automatically switch between light and dark mode based on the device setting.',
       dateLaunched: 'October 2020',
       technologiesUsed: ['android sdk', 'kotlin', 'material design'],
       githubLink: 'https://github.com/ashtonjonesdev/favorite_countries',
