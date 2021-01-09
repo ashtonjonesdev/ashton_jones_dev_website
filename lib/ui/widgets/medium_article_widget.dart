@@ -43,25 +43,25 @@ class _MediumArticleWidgetState extends State<MediumArticleWidget> {
         }
       },
       onTap: openMediumArticleLink,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Card(
-          color: _isHovering ? Colors.grey.shade300 : Colors.white,
-          elevation: 16,
-          margin: EdgeInsets.fromLTRB(50, 48, 50, 48),
-          child:Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FittedBox(fit: BoxFit.fitWidth, child: Image.asset(widget._mediumArticle.imageResource, height: 300, width: 400,)),
-                  SizedBox(height: 20),
-                  Text(widget._mediumArticle.title, style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,),
-                  SizedBox(height: 10),
-                  Text(widget._mediumArticle.subtitle, textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(fontSize: 20),),
-                  SizedBox(height: 20,),
-                  Row(
+      child: Material(
+        borderRadius: BorderRadius.circular(16),
+        color: _isHovering ? Colors.grey.shade300 : Colors.white,
+        elevation: 16,
+        child:Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FittedBox(fit: BoxFit.fitWidth, child: Image.asset(widget._mediumArticle.imageResource, height: 300, width: 400,)),
+                SizedBox(height: 20),
+                Text(widget._mediumArticle.title, style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,),
+                SizedBox(height: 10),
+                widget._mediumArticle.subtitle != null ? Text(widget._mediumArticle.subtitle ?? '', textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(fontSize: 20),) : Container(),
+                SizedBox(height: 10,),
+                Flexible(
+                  flex: 1,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
@@ -71,10 +71,9 @@ class _MediumArticleWidgetState extends State<MediumArticleWidget> {
                       Text(widget._mediumArticle.datePublished, style: Theme.of(context).textTheme.caption.copyWith(color: Colors.grey.shade700),),
                     ],
                   ),
-                  SizedBox(height: 40),
-                ],
-              )
-          ),
+                ),
+              ],
+            )
         ),
       ),
     );

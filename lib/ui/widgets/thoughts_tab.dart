@@ -1,5 +1,6 @@
 import 'package:ashton_jones_dev_website/core/data/model/medium_articles_data.dart';
 import 'package:ashton_jones_dev_website/core/utils/ComputerProgrammerController.dart';
+import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
 import 'package:ashton_jones_dev_website/core/utils/WritingPencilController.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/medium_article_widget.dart';
 import 'package:flare_flutter/flare_actor.dart';
@@ -11,8 +12,9 @@ class ThoughtsTab extends StatefulWidget {
 }
 
 class _ThoughtsTabState extends State<ThoughtsTab> {
-
   WritingPencilController _writingPencilController = WritingPencilController();
+  bool _switchValueTechnicalWriting = true;
+  bool _switchValuePersonalWriting = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,25 +22,45 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            height: 75,
-            child: FlareActor(
-              'assets/main-write.flr',
-              controller: _writingPencilController,
-              shouldClip: false,
-              fit: BoxFit.contain,
-              alignment: Alignment.bottomCenter,
-            ),
-          ),
-          Flexible(
-            fit: FlexFit.loose,
-            child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: mediumArticles.length,
-                itemBuilder: (context, index) =>
-                    MediumArticleWidget(mediumArticles[index])),
-          ),
+          Text('I write articles on Medium'),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [Text('Technical writing'), Switch(value: _switchValueTechnicalWriting, onChanged: (value) {
+          //     setState(() {
+          //       _switchValueTechnicalWriting = value;
+          //     });
+          //   })],
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [Text('Personal writing'), Switch(value: _switchValuePersonalWriting, onChanged: (value) {
+          //     setState(() {
+          //       _switchValuePersonalWriting = value;
+          //     });
+          //   })],
+          // ),
+          ScreenSize.isSmallScreen(context)
+              ? ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: mediumArticles.length,
+                  itemBuilder: (context, index) =>
+                      MediumArticleWidget(mediumArticles[index]))
+              : GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: mediumArticles.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 32),
+                      child: MediumArticleWidget(mediumArticles[index]),
+                    );
+                  },
+                ),
         ],
       ),
     );
