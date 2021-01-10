@@ -20,7 +20,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String _appBarTitle = '👨🏻‍💻';
 
-  String _typeWriterText = 'I build experiences';
+  String _typeWriterText = 'I create experiences';
 
   static List<Widget> _bodyWidgets = <Widget>[
     AboutTab(),
@@ -193,10 +193,11 @@ class _HomeState extends State<Home> {
                     color: kPrimaryColorLight,
                     thickness: 5,
                   ),
-                  SizedBox(height: 50,),
+                  SizedBox(height: 40,),
                   Image.asset('images/medium_outro_image.png', fit: BoxFit.contain,),
                   SizedBox(height: 20,),
                   Text('Connect with me:', style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.black),),
+                  SizedBox(height: 10,),
                   !ScreenSize.isSmallScreen(context) ? Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -436,6 +437,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                         ),
+                        SizedBox(height: 10,),
                         Flexible(
                           flex: 1,
                           child: Row(

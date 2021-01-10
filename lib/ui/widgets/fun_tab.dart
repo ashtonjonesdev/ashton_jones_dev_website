@@ -1,8 +1,13 @@
 import 'package:ashton_jones_dev_website/core/utils/SmileFaceController.dart';
+import 'package:ashton_jones_dev_website/styles/colors.dart';
+import 'package:ashton_jones_dev_website/ui/widgets/type_writer_text.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ashton_jones_dev_website/core/utils/HoverExtentions.dart';
+import 'package:simple_animations/simple_animations.dart';
+import 'package:supercharged/supercharged.dart';
+
 
 
 class FunTab extends StatefulWidget {
@@ -11,21 +16,48 @@ class FunTab extends StatefulWidget {
 }
 
 class _FunTabState extends State<FunTab> {
-  SmileFaceController _smileFaceController = SmileFaceController();
+
+  bool typewriter(double width) => width > 15;
+
+  String _typewriterText = 'I have fun';
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            height: 75,
-            child: FlareActor(
-              'assets/smile_face.flr',
-              controller: _smileFaceController,
-              shouldClip: false,
-              fit: BoxFit.contain,
-              alignment: Alignment.bottomCenter,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: PlayAnimation<double>(
+              duration: 400.milliseconds,
+              tween: 0.0.tweenTo(80.0),
+              builder: (context, child, height) {
+                return PlayAnimation<double>(
+                  duration: 1600.milliseconds,
+                  delay: 500.milliseconds,
+                  tween: 2.0.tweenTo(300.0),
+                  builder: (context, child, width) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          color: kPrimaryColorLight,
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withAlpha(50),
+                                blurRadius: 15,
+                                offset: Offset(0, 8),
+                                spreadRadius: 5)
+                          ]),
+                      width: width,
+                      height: height,
+                      child: typewriter(width)
+                          ? TypeWriterText(_typewriterText)
+                          : Container(),
+                    );
+                  },
+                );
+              },
             ),
           ),
           Container(

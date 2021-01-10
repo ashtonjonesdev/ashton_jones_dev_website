@@ -2,10 +2,14 @@ import 'dart:html';
 
 import 'package:ashton_jones_dev_website/core/utils/ComputerProgrammerController.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
+import 'package:ashton_jones_dev_website/ui/widgets/type_writer_text.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:mailto/mailto.dart';
+import 'package:simple_animations/simple_animations.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:supercharged/supercharged.dart';
+
 
 class ConsultingTab extends StatefulWidget {
   @override
@@ -15,6 +19,10 @@ class ConsultingTab extends StatefulWidget {
 class _ConsultingTabState extends State<ConsultingTab> {
 
   ComputerProgrammerController _computerProgrammerController;
+
+  bool typewriter(double width) => width > 15;
+
+  String _typewriterText = 'Let\'s work together';
 
 
   @override
@@ -130,25 +138,53 @@ class _ConsultingTabState extends State<ConsultingTab> {
               elevation: 16,
               child: Column(
                 children: [
-                  SizedBox(height: 40.0),
-                  Text(
-                    'Work with me',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5
-                        .copyWith(color: Colors.grey.shade700),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: PlayAnimation<double>(
+                      duration: 400.milliseconds,
+                      tween: 0.0.tweenTo(80.0),
+                      builder: (context, child, height) {
+                        return PlayAnimation<double>(
+                          duration: 1600.milliseconds,
+                          delay: 500.milliseconds,
+                          tween: 2.0.tweenTo(300.0),
+                          builder: (context, child, width) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                  color: kPrimaryColorLight,
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.black.withAlpha(50),
+                                        blurRadius: 15,
+                                        offset: Offset(0, 8),
+                                        spreadRadius: 5)
+                                  ]),
+                              width: width,
+                              height: height,
+                              child: typewriter(width)
+                                  ? TypeWriterText(_typewriterText)
+                                  : Container(),
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
-                  SizedBox(height: 40.0),
-                  Container(
-                      height: 200,
-                      padding: const EdgeInsets.only(left: 30.0, right:30.0),
-                      child: FlareActor(
-                        "assets/computer_programmer.flr",
-                        shouldClip: false,
-                        alignment: Alignment.bottomCenter,
-                        fit: BoxFit.contain,
-                        controller: _computerProgrammerController,
-                      )),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                    child: Container(
+                        height: 200,
+                        padding: const EdgeInsets.only(left: 30.0, right:30.0),
+                        child: FlareActor(
+                          "assets/computer_programmer.flr",
+                          shouldClip: false,
+                          alignment: Alignment.bottomCenter,
+                          fit: BoxFit.contain,
+                          controller: _computerProgrammerController,
+                        )),
+                  ),
                   SizedBox(height: 20.0),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 48),
