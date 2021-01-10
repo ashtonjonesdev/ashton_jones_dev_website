@@ -11,12 +11,16 @@ dependencies:
     sdk: flutter
 
   http: ^0.12.0+2
-  mailto: ^1.0.0
+  mailto: ^1.1.0
   url_launcher: ^5.5.3
   flare_flutter: ^2.0.6
+  simple_animations: ^2.2.3
+  supercharged: ^1.11.1
 
   # Workarounds
   universal_platform: ^0.1.3
+
+
 
 
 
