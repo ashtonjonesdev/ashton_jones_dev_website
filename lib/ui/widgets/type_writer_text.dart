@@ -22,6 +22,7 @@ class TypeWriterText extends StatelessWidget {
         tween: 0.tweenTo(text.length),
         builder: (context, child, textLength) {
           return Row(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(text.substring(0, textLength),
