@@ -19,7 +19,7 @@ class _FunTabState extends State<FunTab> {
 
   bool typewriter(double width) => width > 15;
 
-  String _typewriterText = 'I have fun';
+  String _typewriterText = 'I have fun, too';
 
   @override
   Widget build(BuildContext context) {

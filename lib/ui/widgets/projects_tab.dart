@@ -1,5 +1,6 @@
 import 'package:ashton_jones_dev_website/core/data/projects_data.dart';
 import 'package:ashton_jones_dev_website/core/utils/JumpAndPhoneController.dart';
+import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
 import 'package:ashton_jones_dev_website/core/utils/WritingPencilController.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/project_widget.dart';
@@ -19,7 +20,7 @@ class _ProjectsTabState extends State<ProjectsTab> {
 
   bool typewriter(double width) => width > 15;
 
-  String _typewriterText = 'I build apps';
+  String _typewriterText = 'I am a software engineer';
 
   @override
   Widget build(BuildContext context) {
@@ -61,15 +62,26 @@ class _ProjectsTabState extends State<ProjectsTab> {
               },
             ),
           ),
-          Flexible(
-            fit: FlexFit.loose,
-            child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: projects.length,
-                itemBuilder: (context, index) =>
-                    ProjectWidget(projects[index])),
-          ),
+          ScreenSize.isSmallScreen(context) ? ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: projects.length,
+              itemBuilder: (context, index) =>
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 56, vertical: 48),
+                    child: ProjectWidget(projects[index]),
+                  )) :
+              GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: projects.length,
+                  itemBuilder: (context, index) =>
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 56, vertical: 48),
+                        child: ProjectWidget(projects[index]),
+                      )
+              )
         ],
       ),
     );

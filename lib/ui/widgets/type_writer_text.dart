@@ -6,8 +6,8 @@ import 'package:supercharged/supercharged.dart';
 
 class TypeWriterText extends StatelessWidget {
   static const Type_Writer_STYLE =
-  TextStyle(letterSpacing: 3,
-      fontSize: 18, fontWeight:
+  TextStyle(letterSpacing: 2,
+      fontSize: 14, fontWeight:
       FontWeight.w400,
       color: Colors.white);
 

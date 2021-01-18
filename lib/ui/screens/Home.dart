@@ -583,6 +583,8 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Center(
+        widthFactor: 1,
+        heightFactor: 1,
         child: _bodyWidgets.elementAt(_selectedIndex),
       ),
     );
