@@ -83,21 +83,32 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
           //     });
           //   })],
           // ),
-      GridView.builder(
+      // GridView.builder(
+      //       physics: NeverScrollableScrollPhysics(),
+      //       shrinkWrap: true,
+      //       itemCount: mediumArticles.length,
+      //             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      //               crossAxisSpacing: 10,
+      //                 mainAxisSpacing: 20,
+      //                 crossAxisCount: 2),
+      //             itemBuilder: (BuildContext context, int index) {
+      //               return Padding(
+      //                 padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 48),
+      //                 child: MediumArticleWidget(mediumArticles[index]),
+      //               );
+      //             },
+      //           ),
+          ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: mediumArticles.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      crossAxisCount: 2),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-                      child: MediumArticleWidget(mediumArticles[index]),
-                    );
-                  },
-                ),
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 48),
+                child: MediumArticleWidget(mediumArticles[index]),
+              );
+            },
+          )
         ],
       ),
     );
