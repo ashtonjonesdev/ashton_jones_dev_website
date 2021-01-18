@@ -21,6 +21,9 @@ class _MediumArticleWidgetState extends State<MediumArticleWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return InkWell(
       onHover: (isHovering) {
         if (isHovering) {

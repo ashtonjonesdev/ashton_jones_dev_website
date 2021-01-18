@@ -84,7 +84,7 @@ class ProjectWidget extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Expanded(child: Image.asset(_project.projectGIFResource, height: 300,)),
-            _project.githubLink != null ?  Expanded(child: InkWell( onTap: openGithubLink, child: Image.asset(_project.githubLink != null ? 'images/github_logo.png' : '', width: 100, height: 100,))) : Container(width: 0, height: 0,),
+            _project.githubLink != null ?  Expanded(child: InkWell( onTap: openGithubLink, child: Image.asset(_project.githubLink != null ? 'images/github.png' : '', width: 100, height: 100,))) : Container(width: 0, height: 0,),
             _project.googlePlayStoreLink != null ?  Expanded(child: InkWell( onTap: openGooglePlayStoreLink, child: Image.asset(_project.googlePlayStoreLink != null ? 'images/google_play_store_badge.png' : '', width:200, height: 100))) : Container(width: 0, height: 0,),
             _project.appleAppStoreLink != null ?  Expanded(child: InkWell( onTap: openAppleAppStoreLink, child: Image.asset(_project.appleAppStoreLink != null ? 'images/apple_app_store.png' : '', width: 200, height: 100,))) : Container(width: 0, height: 0,)
 
