@@ -62,7 +62,7 @@ class _ProjectsTabState extends State<ProjectsTab> {
               },
             ),
           ),
-          ScreenSize.isSmallScreen(context) ? ListView.builder(
+          ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: projects.length,
@@ -70,18 +70,7 @@ class _ProjectsTabState extends State<ProjectsTab> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 56, vertical: 48),
                     child: ProjectWidget(projects[index]),
-                  )) :
-              GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: projects.length,
-                  itemBuilder: (context, index) =>
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 56, vertical: 48),
-                        child: ProjectWidget(projects[index]),
-                      )
-              )
+                  ))
         ],
       ),
     );

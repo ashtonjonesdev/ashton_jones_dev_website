@@ -201,162 +201,165 @@ class _HomeState extends State<Home> {
                   SizedBox(height: 10,),
                   !ScreenSize.isSmallScreen(context) ? Flexible(
                     fit: FlexFit.loose,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset('images/gmail_icon.png', width: 20, height: 20,),
-                            label: Expanded(
-                                flex: 1,
-                                child: Text('Email',
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/gmail_icon.png', width: 20, height: 20,),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text('Email',
+                                      overflow: TextOverflow.visible,
+                                      softWrap: false)),
+                              onPressed: () => html.window.open(
+                                  'mailto:ashtonjonesdev@gmail.com',
+                                  'ashtonjonesdev'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/linkedin.png',
+                                  width: 20, height: 20),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Linkedin',
                                     overflow: TextOverflow.visible,
-                                    softWrap: false)),
-                            onPressed: () => html.window.open(
-                                'mailto:ashtonjonesdev@gmail.com',
-                                'ashtonjonesdev'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset('images/linkedin.png',
-                                width: 20, height: 20),
-                            label: Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Linkedin',
-                                  overflow: TextOverflow.visible,
-                                  softWrap: false,
-                                )),
-                            onPressed: () => html.window.open(
-                                'https://www.linkedin.com/in/tjgrapes/',
-                                'Ashton Jones'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset('images/google_play_icon.png',
-                                width: 20, height: 20),
-                            label: Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Play Store',
-                                  overflow: TextOverflow.visible,
-                                  softWrap: false,
-                                )),
-                            onPressed: () => html.window.open(
-                                'https://play.google.com/store/apps/dev?id=8786079395794167171',
-                                'Ashton Jones Google Play Developer Page'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset('images/medium_icon.jpg',
-                                width: 20, height: 20),
-                            label: Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Medium',
-                                  overflow: TextOverflow.visible,
-                                  softWrap: false,
-                                )),
-                            onPressed: () => html.window.open(
-                                'https://medium.com/@TJgrapes', 'TJgrapes'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset(
-                              'images/github.png',
-                              height: 20,
-                              width: 20,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://www.linkedin.com/in/tjgrapes/',
+                                  'Ashton Jones'),
                             ),
-                            label: Expanded(
-                              flex: 1,
-                              child: Text(
-                                'Github',
-                                overflow: TextOverflow.visible,
-                                softWrap: false,
-                              ),
-                            ),
-                            onPressed: () => html.window.open(
-                                'https://github.com/ashtonjonesdev',
-                                'ashtonjonesdev'),
                           ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset(
-                              'images/dev.to_logo.png',
-                              height: 20,
-                              width: 20,
-                            ),
-                            label: Expanded(
-                              flex: 1,
-                              child: Text(
-                                'Dev.to',
-                                overflow: TextOverflow.visible,
-                                softWrap: false,
-                              ),
-                            ),
-                            onPressed: () => html.window
-                                .open('https://dev.to/tjgrapes', 'dev.to'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset(
-                              'images/twitter.png',
-                              width: 20,
-                              height: 20,
-                            ),
-                            label: Expanded(
-                                flex: 1,
-                                child: Text('Twitter',
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/google_play_icon.png',
+                                  width: 20, height: 20),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Play Store',
                                     overflow: TextOverflow.visible,
-                                    softWrap: false)),
-                            onPressed: () => html.window.open(
-                                'https://twitter.com/TJgrapes', 'TJgrapes'),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: FlatButton.icon(
-                            hoverColor: kPrimaryColor200,
-                            icon: Image.asset(
-                              'images/facebook.png',
-                              width: 20,
-                              height: 20,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://play.google.com/store/apps/dev?id=8786079395794167171',
+                                  'Ashton Jones Google Play Developer Page'),
                             ),
-                            label: Expanded(
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/medium_icon.jpg',
+                                  width: 20, height: 20),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Medium',
+                                    overflow: TextOverflow.visible,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://medium.com/@TJgrapes', 'TJgrapes'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/github.png',
+                                height: 20,
+                                width: 20,
+                              ),
+                              label: Expanded(
                                 flex: 1,
                                 child: Text(
-                                  'Facebook',
+                                  'Github',
                                   overflow: TextOverflow.visible,
                                   softWrap: false,
-                                )),
-                            onPressed: () => html.window.open(
-                                'https://www.facebook.com/TJgrapes',
-                                'TJgrapes'),
+                                ),
+                              ),
+                              onPressed: () => html.window.open(
+                                  'https://github.com/ashtonjonesdev',
+                                  'ashtonjonesdev'),
+                            ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/dev.to_logo.png',
+                                height: 20,
+                                width: 20,
+                              ),
+                              label: Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'Dev.to',
+                                  overflow: TextOverflow.visible,
+                                  softWrap: false,
+                                ),
+                              ),
+                              onPressed: () => html.window
+                                  .open('https://dev.to/tjgrapes', 'dev.to'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/twitter.png',
+                                width: 20,
+                                height: 20,
+                              ),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text('Twitter',
+                                      overflow: TextOverflow.visible,
+                                      softWrap: false)),
+                              onPressed: () => html.window.open(
+                                  'https://twitter.com/TJgrapes', 'TJgrapes'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/facebook.png',
+                                width: 20,
+                                height: 20,
+                              ),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Facebook',
+                                    overflow: TextOverflow.visible,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://www.facebook.com/TJgrapes',
+                                  'TJgrapes'),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ) :
                   Flexible(
@@ -368,80 +371,83 @@ class _HomeState extends State<Home> {
                       children: [
                         Flexible(
                           fit: FlexFit.loose,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: FlatButton.icon(
-                                  hoverColor: kPrimaryColor200,
-                                  icon: Image.asset('images/gmail_icon.png', width: 20, height: 20,),
-                                  label: Expanded(
-                                      flex: 1,
-                                      child: Text('Email',
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/gmail_icon.png', width: 20, height: 20,),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text('Email',
+                                            overflow: TextOverflow.visible,
+                                            softWrap: false)),
+                                    onPressed: () => html.window.open(
+                                        'mailto:ashtonjonesdev@gmail.com',
+                                        'ashtonjonesdev'),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/linkedin.png',
+                                        width: 20, height: 20),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          'Linkedin',
                                           overflow: TextOverflow.visible,
-                                          softWrap: false)),
-                                  onPressed: () => html.window.open(
-                                      'mailto:ashtonjonesdev@gmail.com',
-                                      'ashtonjonesdev'),
+                                          softWrap: false,
+                                        )),
+                                    onPressed: () => html.window.open(
+                                        'https://www.linkedin.com/in/tjgrapes/',
+                                        'Ashton Jones'),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: FlatButton.icon(
-                                  hoverColor: kPrimaryColor200,
-                                  icon: Image.asset('images/linkedin.png',
-                                      width: 20, height: 20),
-                                  label: Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Linkedin',
-                                        overflow: TextOverflow.visible,
-                                        softWrap: false,
-                                      )),
-                                  onPressed: () => html.window.open(
-                                      'https://www.linkedin.com/in/tjgrapes/',
-                                      'Ashton Jones'),
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/google_play_icon.png',
+                                        width: 20, height: 20),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          'Play Store',
+                                          overflow: TextOverflow.visible,
+                                          softWrap: false,
+                                        )),
+                                    onPressed: () => html.window.open(
+                                        'https://play.google.com/store/apps/dev?id=8786079395794167171',
+                                        'Ashton Jones Google Play Developer Page'),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: FlatButton.icon(
-                                  hoverColor: kPrimaryColor200,
-                                  icon: Image.asset('images/google_play_icon.png',
-                                      width: 20, height: 20),
-                                  label: Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Play Store',
-                                        overflow: TextOverflow.visible,
-                                        softWrap: false,
-                                      )),
-                                  onPressed: () => html.window.open(
-                                      'https://play.google.com/store/apps/dev?id=8786079395794167171',
-                                      'Ashton Jones Google Play Developer Page'),
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/medium_icon.jpg',
+                                        width: 20, height: 20),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          'Medium',
+                                          overflow: TextOverflow.visible,
+                                          softWrap: false,
+                                        )),
+                                    onPressed: () => html.window.open(
+                                        'https://medium.com/@TJgrapes', 'TJgrapes'),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: FlatButton.icon(
-                                  hoverColor: kPrimaryColor200,
-                                  icon: Image.asset('images/medium_icon.jpg',
-                                      width: 20, height: 20),
-                                  label: Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Medium',
-                                        overflow: TextOverflow.visible,
-                                        softWrap: false,
-                                      )),
-                                  onPressed: () => html.window.open(
-                                      'https://medium.com/@TJgrapes', 'TJgrapes'),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(height: 10,),

@@ -1,9 +1,13 @@
 import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
+import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:html' as html;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ashton_jones_dev_website/core/utils/HoverExtentions.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+
 
 class AboutTab extends StatelessWidget {
   _launchUrl(String urlToLaunch) async {
@@ -28,13 +32,12 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      child: Text(
-                        'Ashton Jones',
-                        textAlign: TextAlign.center,
-                        textScaleFactor: 4,
-                      ),
-                    ).showCursorOnHover,
+                    Text(
+                      'Ashton Jones',
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 6,
+                      style: GoogleFonts.aldrich().copyWith(letterSpacing: 3),
+                    ),
                     SizedBox(
                       height: 20,
                     ),
@@ -43,7 +46,7 @@ class AboutTab extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
-                          .copyWith(color: Colors.grey.shade700),
+                          .copyWith(fontWeight: FontWeight.bold),
                       textScaleFactor: 2,
                       textAlign: TextAlign.center,
                     ),
@@ -112,9 +115,18 @@ class AboutTab extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
-                            .copyWith(color: Colors.blue, height: 1.1),
+                            .headline4
+                            .copyWith(color: Colors.blue, height: 1.1,  decoration: TextDecoration.underline),
                       ),
+                    ),
+                    Text(
+                      'I build apps.\nI can make your app idea a reality.\n',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          .copyWith(fontWeight: FontWeight.bold, color: kPrimaryColor),
+                      textScaleFactor: 3,
                     ),
                     SizedBox(
                       height: 30,
@@ -145,9 +157,18 @@ class AboutTab extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
-                            .copyWith(color: Colors.blue, height: 1.1),
+                            .headline4
+                            .copyWith(color: Colors.blue, height: 1.1,  decoration: TextDecoration.underline),
                       ),
+                    ),
+                    Text(
+                      'I am a Google Certified Developer.',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          .copyWith(fontWeight: FontWeight.bold, color: kPrimaryColor),
+                      textScaleFactor: 3,
                     ),
                     SizedBox(
                       height: 30,
@@ -182,13 +203,22 @@ class AboutTab extends StatelessWidget {
                         _launchUrl('https://medium.com/@TJgrapes');
                       },
                       child: Text(
-                        'Technical Writing ✍',
+                        'Writing ✍',
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
-                            .copyWith(color: Colors.blue, height: 1.1),
+                            .headline4
+                            .copyWith(color: Colors.blue, height: 1.1, decoration: TextDecoration.underline),
                       ),
+                    ),
+                    Text(
+                      'I am a thought leader.',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          .copyWith(fontWeight: FontWeight.bold, color: kPrimaryColor),
+                      textScaleFactor: 3,
                     ),
                     SizedBox(
                       height: 30,
@@ -224,9 +254,18 @@ class AboutTab extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
-                            .copyWith(color: Colors.blue, height: 1.1),
+                            .headline4
+                            .copyWith(color: Colors.blue, height: 1.1,  decoration: TextDecoration.underline),
                       ),
+                    ),
+                    Text(
+                      'I understand startups.',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          .copyWith(fontWeight: FontWeight.bold, color: kPrimaryColor),
+                      textScaleFactor: 3,
                     ),
                     SizedBox(
                       height: 30,
@@ -250,6 +289,347 @@ class AboutTab extends StatelessWidget {
                       thickness: 5,
                     ),
                     SizedBox(height: 30),
+                    Text('Connect with me:', style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.black),),
+                    SizedBox(height: 10,),
+                    !ScreenSize.isSmallScreen(context) ? Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/gmail_icon.png', width: 20, height: 20,),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text('Email',
+                                      overflow: TextOverflow.visible,
+                                      softWrap: false)),
+                              onPressed: () => html.window.open(
+                                  'mailto:ashtonjonesdev@gmail.com',
+                                  'ashtonjonesdev'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/linkedin.png',
+                                  width: 20, height: 20),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Linkedin',
+                                    overflow: TextOverflow.visible,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://www.linkedin.com/in/tjgrapes/',
+                                  'Ashton Jones'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/google_play_icon.png',
+                                  width: 20, height: 20),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Play Store',
+                                    overflow: TextOverflow.visible,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://play.google.com/store/apps/dev?id=8786079395794167171',
+                                  'Ashton Jones Google Play Developer Page'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset('images/medium_icon.jpg',
+                                  width: 20, height: 20),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Medium',
+                                    overflow: TextOverflow.visible,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://medium.com/@TJgrapes', 'TJgrapes'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/github.png',
+                                height: 20,
+                                width: 20,
+                              ),
+                              label: Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'Github',
+                                  overflow: TextOverflow.visible,
+                                  softWrap: false,
+                                ),
+                              ),
+                              onPressed: () => html.window.open(
+                                  'https://github.com/ashtonjonesdev',
+                                  'ashtonjonesdev'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/dev.to_logo.png',
+                                height: 20,
+                                width: 20,
+                              ),
+                              label: Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'Dev.to',
+                                  overflow: TextOverflow.visible,
+                                  softWrap: false,
+                                ),
+                              ),
+                              onPressed: () => html.window
+                                  .open('https://dev.to/tjgrapes', 'dev.to'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/twitter.png',
+                                width: 20,
+                                height: 20,
+                              ),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text('Twitter',
+                                      overflow: TextOverflow.visible,
+                                      softWrap: false)),
+                              onPressed: () => html.window.open(
+                                  'https://twitter.com/TJgrapes', 'TJgrapes'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: FlatButton.icon(
+                              hoverColor: kPrimaryColor200,
+                              icon: Image.asset(
+                                'images/facebook.png',
+                                width: 20,
+                                height: 20,
+                              ),
+                              label: Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Facebook',
+                                    overflow: TextOverflow.visible,
+                                    softWrap: false,
+                                  )),
+                              onPressed: () => html.window.open(
+                                  'https://www.facebook.com/TJgrapes',
+                                  'TJgrapes'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ) : Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/gmail_icon.png', width: 20, height: 20,),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text('Email',
+                                            overflow: TextOverflow.visible,
+                                            softWrap: false)),
+                                    onPressed: () => html.window.open(
+                                        'mailto:ashtonjonesdev@gmail.com',
+                                        'ashtonjonesdev'),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/linkedin.png',
+                                        width: 20, height: 20),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          'Linkedin',
+                                          overflow: TextOverflow.visible,
+                                          softWrap: false,
+                                        )),
+                                    onPressed: () => html.window.open(
+                                        'https://www.linkedin.com/in/tjgrapes/',
+                                        'Ashton Jones'),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/google_play_icon.png',
+                                        width: 20, height: 20),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          'Play Store',
+                                          overflow: TextOverflow.visible,
+                                          softWrap: false,
+                                        )),
+                                    onPressed: () => html.window.open(
+                                        'https://play.google.com/store/apps/dev?id=8786079395794167171',
+                                        'Ashton Jones Google Play Developer Page'),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: FlatButton.icon(
+                                    hoverColor: kPrimaryColor200,
+                                    icon: Image.asset('images/medium_icon.jpg',
+                                        width: 20, height: 20),
+                                    label: Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          'Medium',
+                                          overflow: TextOverflow.visible,
+                                          softWrap: false,
+                                        )),
+                                    onPressed: () => html.window.open(
+                                        'https://medium.com/@TJgrapes', 'TJgrapes'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: FlatButton.icon(
+                                  hoverColor: kPrimaryColor200,
+                                  icon: Image.asset(
+                                    'images/github.png',
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                  label: Expanded(
+                                    flex: 1,
+                                    child: Text(
+                                      'Github',
+                                      overflow: TextOverflow.visible,
+                                      softWrap: false,
+                                    ),
+                                  ),
+                                  onPressed: () => html.window.open(
+                                      'https://github.com/ashtonjonesdev',
+                                      'ashtonjonesdev'),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: FlatButton.icon(
+                                  hoverColor: kPrimaryColor200,
+                                  icon: Image.asset(
+                                    'images/dev.to_logo.png',
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                  label: Expanded(
+                                    flex: 1,
+                                    child: Text(
+                                      'Dev.to',
+                                      overflow: TextOverflow.visible,
+                                      softWrap: false,
+                                    ),
+                                  ),
+                                  onPressed: () => html.window
+                                      .open('https://dev.to/tjgrapes', 'dev.to'),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: FlatButton.icon(
+                                  hoverColor: kPrimaryColor200,
+                                  icon: Image.asset(
+                                    'images/twitter.png',
+                                    width: 20,
+                                    height: 20,
+                                  ),
+                                  label: Expanded(
+                                      flex: 1,
+                                      child: Text('Twitter',
+                                          overflow: TextOverflow.visible,
+                                          softWrap: false)),
+                                  onPressed: () => html.window.open(
+                                      'https://twitter.com/TJgrapes', 'TJgrapes'),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: FlatButton.icon(
+                                  hoverColor: kPrimaryColor200,
+                                  icon: Image.asset(
+                                    'images/facebook.png',
+                                    width: 20,
+                                    height: 20,
+                                  ),
+                                  label: Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        'Facebook',
+                                        overflow: TextOverflow.visible,
+                                        softWrap: false,
+                                      )),
+                                  onPressed: () => html.window.open(
+                                      'https://www.facebook.com/TJgrapes',
+                                      'TJgrapes'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
