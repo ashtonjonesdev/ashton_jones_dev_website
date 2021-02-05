@@ -238,7 +238,7 @@ class _HomeState extends State<Home> {
                               icon: Image.asset('images/gmail_icon.png', width: 40, height: 40,),
                               onPressed: () => html.window.open(
                                   'mailto:ashtonjonesdev@gmail.com',
-                                  'ashtonjonesdev'),
+                                  'Send email to Ashton Jones'),
                             ),
                           ),
                           Expanded(
