@@ -116,21 +116,16 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              InkWell(
-                onTap: () {
-                  _launchUrl('https://github.com/ashtonjonesdev');
-                },
-                child: Text(
-                  '🖥',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4
-                      .copyWith(color: Colors.black),
-                ),
+              Text(
+                '🖥',
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Colors.black),
               ),
               Text(
-                'I build apps.',
+                'I build apps',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline6.copyWith(
                     fontWeight: FontWeight.bold, color: kPrimaryColor),
@@ -295,19 +290,13 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              InkWell(
-                onTap: () {
-                  _launchUrl(
-                      'https://images.credential.net/embed/x146el0j.png');
-                },
-                child: Text(
-                  '🔖',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4
-                      .copyWith(color: Colors.black),
-                ),
+              Text(
+                '🔖',
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Colors.black),
               ),
               Text(
                 'I am a Google Certified Developer',
@@ -320,17 +309,17 @@ class AboutTab extends StatelessWidget {
                 height: 30,
               ),
               Wrap(
-                spacing: 50,
-                runSpacing: 50,
+                spacing: 100,
+                runSpacing: 100,
                 alignment: WrapAlignment.center,
                 children: [
                   Image.asset(
                     'images/associate_android_developer_badge.png',
-                    width: 300,
-                    height: 300,
+                    width: 424,
+                    height: 424,
                   ),
                   Image.asset(
-                    'images/google_certification_300.png',
+                    'images/google_certification.png',
                   ),
                 ],
               ),
@@ -374,18 +363,10 @@ class AboutTab extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              InkWell(
-                onTap: () {
-                  _launchUrl('https://medium.com/@TJgrapes');
-                },
-                child: Text(
-                  '🖋',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline4.copyWith(
-                      color: Colors.blue,
-                      height: 1.1,
-                      decoration: TextDecoration.underline),
-                ),
+              Text(
+                '🖋',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline4,
               ),
               Text(
                 'I am a storyteller',
@@ -398,7 +379,7 @@ class AboutTab extends StatelessWidget {
                 height: 20,
               ),
               Image.asset(
-                'images/Insight_Owl.png',
+                'images/Insight_Owl_black.png',
               ),
               SizedBox(
                 height: 20,
@@ -437,19 +418,13 @@ class AboutTab extends StatelessWidget {
                 thickness: 5,
               ),
               SizedBox(height: 30),
-              InkWell(
-                onTap: () {
-                  _launchUrl(
-                      'https://www.instagram.com/p/B9R3sfRFHy4/?igshid=1ntltciv11712');
-                },
-                child: Text(
-                  '🚀',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline4.copyWith(
-                      color: Colors.blue,
-                      height: 1.1,
-                      decoration: TextDecoration.underline),
-                ),
+              Text(
+                '🚀',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline4.copyWith(
+                    color: Colors.blue,
+                    height: 1.1,
+                    decoration: TextDecoration.underline),
               ),
               Text(
                 'I understand startups',
@@ -521,8 +496,8 @@ class AboutTab extends StatelessWidget {
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
                           'images/gmail_icon.png',
-                          width: 40,
-                          height: 40,
+                          width: 60,
+                          height: 60,
                         ),
                         onPressed: () => html.window.open(
                             'mailto:ashtonjonesdev@gmail.com',
@@ -534,7 +509,7 @@ class AboutTab extends StatelessWidget {
                       child: IconButton(
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset('images/linkedin.png',
-                            width: 40, height: 40),
+                            width: 60, height: 60),
                         onPressed: () => html.window.open(
                             'https://www.linkedin.com/in/tjgrapes/',
                             'Ashton Jones'),
@@ -545,7 +520,7 @@ class AboutTab extends StatelessWidget {
                       child: IconButton(
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset('images/google_play_icon.png',
-                            width: 40, height: 40),
+                            width: 60, height: 60),
                         onPressed: () => html.window.open(
                             'https://play.google.com/store/apps/dev?id=8786079395794167171',
                             'Ashton Jones Google Play Developer Page'),
@@ -556,7 +531,7 @@ class AboutTab extends StatelessWidget {
                       child: IconButton(
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset('images/medium_icon.jpg',
-                            width: 40, height: 40),
+                            width: 60, height: 60),
                         onPressed: () => html.window
                             .open('https://medium.com/@TJgrapes', 'TJgrapes'),
                       ),
@@ -567,8 +542,8 @@ class AboutTab extends StatelessWidget {
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
                           'images/github.png',
-                          height: 40,
-                          width: 40,
+                          height: 60,
+                          width: 60,
                         ),
                         onPressed: () => html.window.open(
                             'https://github.com/ashtonjonesdev',
@@ -580,22 +555,9 @@ class AboutTab extends StatelessWidget {
                       child: IconButton(
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
-                          'images/dev.to_logo.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        onPressed: () => html.window
-                            .open('https://dev.to/tjgrapes', 'dev.to'),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: IconButton(
-                        hoverColor: kPrimaryColor200,
-                        icon: Image.asset(
                           'images/twitter.png',
-                          width: 40,
-                          height: 40,
+                          width: 60,
+                          height: 60,
                         ),
                         onPressed: () => html.window
                             .open('https://twitter.com/TJgrapes', 'TJgrapes'),
@@ -607,8 +569,8 @@ class AboutTab extends StatelessWidget {
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
                           'images/facebook.png',
-                          width: 40,
-                          height: 40,
+                          width: 60,
+                          height: 60,
                         ),
                         onPressed: () => html.window.open(
                             'https://www.facebook.com/TJgrapes', 'TJgrapes'),
