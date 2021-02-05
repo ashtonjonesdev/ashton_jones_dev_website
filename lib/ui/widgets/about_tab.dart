@@ -509,7 +509,7 @@ class AboutTab extends StatelessWidget {
                       child: IconButton(
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset('images/linkedin.png',
-                            width: 60, height: 60),
+                            width: 70, height: 70),
                         onPressed: () => html.window.open(
                             'https://www.linkedin.com/in/tjgrapes/',
                             'Ashton Jones'),
@@ -519,19 +519,8 @@ class AboutTab extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         hoverColor: kPrimaryColor200,
-                        icon: Image.asset('images/google_play_icon.png',
-                            width: 60, height: 60),
-                        onPressed: () => html.window.open(
-                            'https://play.google.com/store/apps/dev?id=8786079395794167171',
-                            'Ashton Jones Google Play Developer Page'),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: IconButton(
-                        hoverColor: kPrimaryColor200,
                         icon: Image.asset('images/medium_icon.jpg',
-                            width: 60, height: 60),
+                            width: 70, height: 70),
                         onPressed: () => html.window
                             .open('https://medium.com/@TJgrapes', 'TJgrapes'),
                       ),
@@ -542,8 +531,8 @@ class AboutTab extends StatelessWidget {
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
                           'images/github.png',
-                          height: 60,
-                          width: 60,
+                          height: 70,
+                          width: 70,
                         ),
                         onPressed: () => html.window.open(
                             'https://github.com/ashtonjonesdev',
@@ -556,8 +545,8 @@ class AboutTab extends StatelessWidget {
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
                           'images/twitter.png',
-                          width: 60,
-                          height: 60,
+                          width: 70,
+                          height: 70,
                         ),
                         onPressed: () => html.window
                             .open('https://twitter.com/TJgrapes', 'TJgrapes'),
@@ -569,8 +558,8 @@ class AboutTab extends StatelessWidget {
                         hoverColor: kPrimaryColor200,
                         icon: Image.asset(
                           'images/facebook.png',
-                          width: 60,
-                          height: 60,
+                          width: 70,
+                          height: 70,
                         ),
                         onPressed: () => html.window.open(
                             'https://www.facebook.com/TJgrapes', 'TJgrapes'),
