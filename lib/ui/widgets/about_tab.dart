@@ -205,7 +205,7 @@ class AboutTab extends StatelessWidget {
                         onTap: () {
                           html.window.open(
                               'https://play.google.com/store/apps/details?id=dev.ashtonjones.reply_flutter',
-                              'Google Play Store Link');
+                              'GooglePlayStoreLink');
                         },
                         child: Image.asset('images/google_play_store_badge.png',
                             width: 200, height: 100),
@@ -214,7 +214,7 @@ class AboutTab extends StatelessWidget {
                         onTap: () {
                           html.window.open(
                               'https://apps.apple.com/us/app/id1522893504',
-                              'Apple App Store Link');
+                              'AppleAppStoreLink');
                         },
                         child: Image.asset('images/apple_app_store.png',
                             width: 200, height: 100),
@@ -230,7 +230,7 @@ class AboutTab extends StatelessWidget {
                         onTap: () {
                           html.window.open(
                               'https://play.google.com/store/apps/details?id=dev.ashtonjones.torch',
-                              'Google Play Store Link');
+                              'GooglePlayStoreLink');
                         },
                         child: Image.asset('images/google_play_store_badge.png',
                             width: 200, height: 100),
@@ -246,7 +246,7 @@ class AboutTab extends StatelessWidget {
                         onTap: () {
                           html.window.open(
                               'https://play.google.com/store/apps/details?id=dev.ashtonjones.reply',
-                              'Google Play Store Link');
+                              'GooglePlayStoreLink');
                         },
                         child: Image.asset('images/google_play_store_badge.png',
                             width: 200, height: 100),
@@ -264,7 +264,7 @@ class AboutTab extends StatelessWidget {
                 color: kPrimaryColorLight,
                 onPressed: () {
                   html.window.open('mailto:ashtonjonesdev@gmail.com',
-                      'Send email to Ashton Jones');
+                      'SendEmailToAshtonJones');
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -343,7 +343,7 @@ class AboutTab extends StatelessWidget {
                 color: kPrimaryColorLight,
                 onPressed: () {
                   html.window.open('https://android.jlelse.eu/from-0-to-android-engineer-6f9019395b2a',
-                      'Open Medium Article');
+                      'OpenMediumArticle');
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -409,7 +409,7 @@ class AboutTab extends StatelessWidget {
                 color: kPrimaryColorLight,
                 onPressed: () {
                   html.window.open('https://insightowl.substack.com/welcome',
-                      'Open Substack Publication');
+                      'OpenSubstackPublication');
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -443,7 +443,7 @@ class AboutTab extends StatelessWidget {
                       'https://www.instagram.com/p/B9R3sfRFHy4/?igshid=1ntltciv11712');
                 },
                 child: Text(
-                  'Startup 🚀',
+                  '🚀',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headline4.copyWith(
                       color: Colors.blue,
@@ -452,7 +452,7 @@ class AboutTab extends StatelessWidget {
                 ),
               ),
               Text(
-                'I understand startups.',
+                'I understand startups',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline6.copyWith(
                     fontWeight: FontWeight.bold, color: kPrimaryColor),
@@ -463,29 +463,47 @@ class AboutTab extends StatelessWidget {
               ),
               Image.asset(
                 'images/tech_day_me.png',
-                width: 200,
               ),
               SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: SelectableText(
-                    'I have first hand experience building a startup and am a member of Domi Station. I am involved in the Tallahassee startup community, and a board member of Entrepreneurship Tallahassee, an organization which schedules Startup Week Tallahassee and promotes entrepreneurship.',
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                color: kPrimaryColorLight,
+                onPressed: () {
+                  html.window.open('https://www.instagram.com/p/B9R3sfRFHy4/?igshid=1ntltciv11712', 'LaunchInstagramPost');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Learn about my startup journey',
+                    textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText2
-                        .copyWith(fontSize: 16)),
+                        .caption
+                        .copyWith(color: Colors.white, fontSize: 32),
+                  ),
+                ),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 32),
+              //   child: SelectableText(
+              //       'I have first hand experience building a startup and am a member of Domi Station. I am involved in the Tallahassee startup community, and a board member of Entrepreneurship Tallahassee, an organization which schedules Startup Week Tallahassee and promotes entrepreneurship.',
+              //       style: Theme.of(context)
+              //           .textTheme
+              //           .bodyText2
+              //           .copyWith(fontSize: 16)),
+              // ),
               Divider(
                 height: 40,
                 thickness: 5,
               ),
               SizedBox(height: 30),
               Text(
-                'Connect with me:',
+                'Connect with me :]',
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText1
-                    .copyWith(color: Colors.black),
+                    .headline3
+                    .copyWith(color: kPrimaryColorLight),
               ),
               SizedBox(
                 height: 10,
