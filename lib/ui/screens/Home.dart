@@ -19,7 +19,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String _appBarTitle = '👨🏻‍💻';
+  String _appBarTitle = '👁‍🗨';
 
   String _typeWriterText = 'I create experiences';
 
