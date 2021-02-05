@@ -22,11 +22,14 @@ class AboutTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return SingleChildScrollView(
-            child: Center(
+    return Scrollbar(
+      thickness: 3,
+      child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
@@ -41,17 +44,16 @@ class AboutTab extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    SelectableText(
-                      '📱 Expert Android and iOS Developer\n\n👨🏻‍💻 Google Certified Android Engineer | ✍🏻 Writer |🧘🏻‍♂️ Stoic',
+                    Text(
+                      'Google Certified Android Engineer | Writer | Stoic',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
-                          .copyWith(fontWeight: FontWeight.bold),
-                      textScaleFactor: 2,
+                          .bodyText1,
+                      textScaleFactor: 3,
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
-                      height: 40,
+                      height: 20,
                     ),
                     Image.asset('images/ash.png', fit: BoxFit.contain),
                     SizedBox(
@@ -401,7 +403,7 @@ class AboutTab extends StatelessWidget {
                 ),
               ),
             ),
-          );
+    );
   }
 }
 
