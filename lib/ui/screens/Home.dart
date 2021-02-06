@@ -5,6 +5,7 @@ import 'package:ashton_jones_dev_website/ui/widgets/consulting_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/projects_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/thoughts_tab.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/type_writer_text.dart';
+import 'package:ashton_jones_dev_website/ui/widgets/ventures_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
@@ -19,7 +20,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String _appBarTitle = '👁‍🗨';
+  String _appBarTitle = 'About';
 
   String _typeWriterText = 'I create experiences';
 
@@ -28,6 +29,7 @@ class _HomeState extends State<Home> {
   static List<Widget> _bodyWidgets = <Widget>[
     AboutTab(),
     ThoughtsTab(),
+    VenturesTab(),
     ProjectsTab(),
     ConsultingTab(),
     FunTab()
@@ -41,22 +43,23 @@ class _HomeState extends State<Home> {
         builder: (BuildContext context) {
           return Dialog(
             child: Scrollbar(
-              thickness: 3,
+              thickness: 5,
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
                         alignment: Alignment.topRight,
-                        child: IconButton(
-                            splashRadius: 16,
-                            icon: Icon(Icons.clear),
-                            onPressed: () => Navigator.pop(context))),
-                    SizedBox(
-                      height: 20,
-                    ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: IconButton(
+                            hoverColor: kPrimaryColorLight,
+                              splashRadius: 24,
+                              icon: Icon(Icons.clear, size: 24,),
+                              onPressed: () => Navigator.pop(context)),
+                        )),
                     PlayAnimation<double>(
                       duration: 400.milliseconds,
                       tween: 0.0.tweenTo(80.0),
@@ -122,7 +125,7 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         setState(() {
                           _selectedIndex = 0;
-                          _appBarTitle = '👨🏻‍💻';
+                          _appBarTitle = 'About';
                         });
                         Navigator.pop(context);
                       },
@@ -140,7 +143,25 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         setState(() {
                           _selectedIndex = 1;
-                          _appBarTitle = '✍🏼';
+                          _appBarTitle = 'Thoughts';
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                    FlatButton.icon(
+                      hoverColor: kPrimaryColor200,
+                      icon: Icon(Icons.alt_route_outlined),
+                      label: Text('Ventures',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2
+                              .copyWith(color: Colors.black),
+                          overflow: TextOverflow.visible,
+                          softWrap: false),
+                      onPressed: () {
+                        setState(() {
+                          _selectedIndex = 2;
+                          _appBarTitle = 'Ventures';
                         });
                         Navigator.pop(context);
                       },
@@ -157,8 +178,8 @@ class _HomeState extends State<Home> {
                           softWrap: false),
                       onPressed: () {
                         setState(() {
-                          _selectedIndex = 2;
-                          _appBarTitle = '📱';
+                          _selectedIndex = 3;
+                          _appBarTitle = 'Projects';
                         });
                         Navigator.pop(context);
                       },
@@ -175,8 +196,8 @@ class _HomeState extends State<Home> {
                           softWrap: false),
                       onPressed: () {
                         setState(() {
-                          _selectedIndex = 3;
-                          _appBarTitle = '🛠';
+                          _selectedIndex = 4;
+                          _appBarTitle = 'Consulting';
                         });
                         Navigator.pop(context);
                       },
@@ -193,8 +214,8 @@ class _HomeState extends State<Home> {
                           softWrap: false),
                       onPressed: () {
                         setState(() {
-                          _selectedIndex = 4;
-                          _appBarTitle = '🕹';
+                          _selectedIndex = 5;
+                          _appBarTitle = 'Fun';
                         });
                         Navigator.pop(context);
                       },
@@ -218,11 +239,14 @@ class _HomeState extends State<Home> {
                       height: 20,
                     ),
                     Text(
-                      'Connect with me:',
+                      'Connect with me :]',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
-                          .copyWith(color: Colors.black),
+                          .headline5
+                          .copyWith(color: kPrimaryColorLight),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
@@ -235,10 +259,14 @@ class _HomeState extends State<Home> {
                             flex: 1,
                             child: IconButton(
                               hoverColor: kPrimaryColor200,
-                              icon: Image.asset('images/gmail_icon.png', width: 40, height: 40,),
+                              icon: Image.asset(
+                                'images/gmail_icon.png',
+                                width: 60,
+                                height: 60,
+                              ),
                               onPressed: () => html.window.open(
                                   'mailto:ashtonjonesdev@gmail.com',
-                                  'Send email to Ashton Jones'),
+                                  'ashtonjonesdev'),
                             ),
                           ),
                           Expanded(
@@ -246,7 +274,7 @@ class _HomeState extends State<Home> {
                             child: IconButton(
                               hoverColor: kPrimaryColor200,
                               icon: Image.asset('images/linkedin.png',
-                                  width: 40, height: 40),
+                                  width: 70, height: 70),
                               onPressed: () => html.window.open(
                                   'https://www.linkedin.com/in/tjgrapes/',
                                   'Ashton Jones'),
@@ -256,21 +284,10 @@ class _HomeState extends State<Home> {
                             flex: 1,
                             child: IconButton(
                               hoverColor: kPrimaryColor200,
-                              icon: Image.asset('images/google_play_icon.png',
-                                  width: 40, height: 40),
-                              onPressed: () => html.window.open(
-                                  'https://play.google.com/store/apps/dev?id=8786079395794167171',
-                                  'Ashton Jones Google Play Developer Page'),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: IconButton(
-                              hoverColor: kPrimaryColor200,
                               icon: Image.asset('images/medium_icon.jpg',
-                                  width: 40, height: 40),
-                              onPressed: () => html.window.open(
-                                  'https://medium.com/@TJgrapes', 'TJgrapes'),
+                                  width: 70, height: 70),
+                              onPressed: () => html.window
+                                  .open('https://medium.com/@TJgrapes', 'TJgrapes'),
                             ),
                           ),
                           Expanded(
@@ -279,8 +296,8 @@ class _HomeState extends State<Home> {
                               hoverColor: kPrimaryColor200,
                               icon: Image.asset(
                                 'images/github.png',
-                                height: 40,
-                                width: 40,
+                                height: 70,
+                                width: 70,
                               ),
                               onPressed: () => html.window.open(
                                   'https://github.com/ashtonjonesdev',
@@ -292,25 +309,12 @@ class _HomeState extends State<Home> {
                             child: IconButton(
                               hoverColor: kPrimaryColor200,
                               icon: Image.asset(
-                                'images/dev.to_logo.png',
-                                height: 40,
-                                width: 40,
+                                'images/twitter.png',
+                                width: 70,
+                                height: 70,
                               ),
                               onPressed: () => html.window
-                                  .open('https://dev.to/tjgrapes', 'dev.to'),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: IconButton(
-                              hoverColor: kPrimaryColor200,
-                              icon: Image.asset(
-                                'images/twitter.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              onPressed: () => html.window.open(
-                                  'https://twitter.com/TJgrapes', 'TJgrapes'),
+                                  .open('https://twitter.com/TJgrapes', 'TJgrapes'),
                             ),
                           ),
                           Expanded(
@@ -319,12 +323,11 @@ class _HomeState extends State<Home> {
                               hoverColor: kPrimaryColor200,
                               icon: Image.asset(
                                 'images/facebook.png',
-                                width: 40,
-                                height: 40,
+                                width: 70,
+                                height: 70,
                               ),
                               onPressed: () => html.window.open(
-                                  'https://www.facebook.com/TJgrapes',
-                                  'TJgrapes'),
+                                  'https://www.facebook.com/TJgrapes', 'TJgrapes'),
                             ),
                           ),
                         ],
@@ -332,9 +335,6 @@ class _HomeState extends State<Home> {
                     ),
                     SizedBox(
                       height: 10,
-                    ),
-                    SizedBox(
-                      height: 20,
                     ),
                   ],
                 ),
@@ -350,12 +350,12 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           '$_appBarTitle',
-          textScaleFactor: 1.75,
+          style: Theme.of(context).textTheme.headline6,
         ),
         leading: IconButton(
           icon: Icon(
             Icons.waves_rounded,
-            color: kPrimaryColor,
+            color: Colors.black,
           ),
           onPressed: openNavigationDialog,
         ),
@@ -378,9 +378,8 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: Center(
-        widthFactor: 1,
-        heightFactor: 1,
+      body: Scrollbar(
+        thickness: 5,
         child: _bodyWidgets.elementAt(_selectedIndex),
       ),
     );
