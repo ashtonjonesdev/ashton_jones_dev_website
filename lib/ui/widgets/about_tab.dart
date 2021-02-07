@@ -106,7 +106,7 @@ class AboutTab extends StatelessWidget {
               height: 40,
               thickness: 5,
             ),
-            Image.asset('images/androidify.gif'),
+            Image.network('https://firebasestorage.googleapis.com/v0/b/ashton-jones-dev-assets.appspot.com/o/androidify.gif?alt=media&token=b15c687d-841b-40d8-b2da-8ef22537eb12'),
             Divider(
               height: 40,
               thickness: 5,
@@ -218,7 +218,7 @@ class AboutTab extends StatelessWidget {
                   children: [
                     Text('Torch', style: Theme.of(context).textTheme.headline3.copyWith(color: Color(0xFFF29E2E)),),
                     Image.asset('images/torch_app_icon_96.png'),
-                    Image.asset('images/torchdemo.gif'),
+                    Image.network('https://firebasestorage.googleapis.com/v0/b/ashton-jones-dev-assets.appspot.com/o/torchdemo.gif?alt=media&token=9e207bdf-3cb6-4213-af28-df1f9768ae72'),
                     InkWell(
                       onTap: () {
                         html.window.open(
