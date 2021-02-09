@@ -6,103 +6,148 @@ import 'dart:html' as html;
 
 import 'package:flutter/widgets.dart';
 
-
 class ProjectWidget extends StatelessWidget {
   final Project _project;
 
   ProjectWidget(this._project);
 
   openGooglePlayStoreLink() {
-    if(_project.googlePlayStoreLink != null) {
+    if (_project.googlePlayStoreLink != null) {
+      html.window.open(_project.googlePlayStoreLink, 'Google Play Store Link');
+    }
+  }
 
-      html.window.open(
-          _project.googlePlayStoreLink, 'Google Play Store Link');
-    }
-  }
   openAppleAppStoreLink() {
-    if(_project.appleAppStoreLink != null) {
-      html.window.open(
-          _project.appleAppStoreLink, 'Apple App Store Link');
+    if (_project.appleAppStoreLink != null) {
+      html.window.open(_project.appleAppStoreLink, 'Apple App Store Link');
     }
   }
+
   openGithubLink() {
-    if(_project.githubLink != null) {
-      html.window.open(
-          _project.githubLink, 'Github Link');
+    if (_project.githubLink != null) {
+      html.window.open(_project.githubLink, 'Github Link');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
-    Size containerSize = MediaQuery.of(context).size;
-
     return Material(
-      elevation: 16,
       borderRadius: BorderRadius.circular(16),
-      child:Container(
-        constraints: BoxConstraints.tight(containerSize),
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Text(_project.title, style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center, softWrap: true, overflow: TextOverflow.visible,),
-            Image.asset(_project.projectIconResource, width: 100, height: 100,),
-            Text(_project.shortDescription, textAlign: TextAlign.center, style: Theme.of(context).textTheme.caption.copyWith(color: kPrimaryColorLight), softWrap: true, overflow: TextOverflow.visible,),
-            SizedBox(height: 10,),
-            Expanded(child: Text(_project.longDescription, style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 16, color: Colors.grey.shade700), softWrap: true, overflow: TextOverflow.clip,)),
-            SizedBox(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Icon(Icons.date_range),
-                ),
-                Expanded(child: Text(_project.dateLaunched, style: Theme.of(context).textTheme.caption.copyWith(color: Colors.grey.shade700),)),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Icon(
-                      Icons.laptop_mac
-                  ),
-                ),
-                Expanded(flex: 1,child: Text(_project.technologiesUsed.toString(), softWrap: true, overflow: TextOverflow.visible, style: Theme.of(context).textTheme.caption.copyWith(color: Colors.grey.shade700),))
-              ],
-            ),
-            SizedBox(height: 10),
-            Expanded(child: Image.asset(_project.projectGIFResource, scale: 2,)),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+      elevation: 16,
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                _project.title,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline3
+                    .copyWith(color: Colors.black),
+                softWrap: true,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Image.asset(
+                _project.projectIconResource,
+                width: 48,
+                height: 48,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                _project.shortDescription,
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: kPrimaryColorLight),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                _project.longDescription,
+                softWrap: true,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Image.asset(_project.projectGIFResource),
+              SizedBox(
+                height: 20,
+              ),
+              Wrap(
                 children: [
-                  _project.githubLink != null ?  Flexible(fit: FlexFit.loose,child: InkWell( onTap: openGithubLink, child: Image.asset(_project.githubLink != null ? 'images/github.png' : '', width: 100, height: 100,))) : Flexible(fit: FlexFit.loose,child: Container(width: 0, height: 0,)),
-                  _project.googlePlayStoreLink != null ?  Flexible(fit: FlexFit.loose,child: InkWell( onTap: openGooglePlayStoreLink, child: Image.asset(_project.googlePlayStoreLink != null ? 'images/google_play_store_badge.png' : '', width:200, height: 100))) : Flexible(fit: FlexFit.loose,child: Container(width: 0, height: 0,)),
-                  _project.appleAppStoreLink != null ?  Flexible(fit: FlexFit.loose,child: InkWell( onTap: openAppleAppStoreLink, child: Image.asset(_project.appleAppStoreLink != null ? 'images/apple_app_store.png' : '', width: 200, height: 100,))) : Flexible(fit: FlexFit.loose,child: Container(width: 0, height: 0,))
+                  Icon(Icons.date_range),
+                  Text(
+                    _project.dateLaunched,
+                    textAlign: TextAlign.center,
+                  ),
                 ],
               ),
-            )
-
-
-          ],
+              Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Icon(Icons.code),
+                  Text(
+                    _project.technologiesUsed.toString(),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+              Wrap(
+                children: [
+                  Icon(Icons.computer_sharp),
+                  Text(
+                    _project.platforms.toString(),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              _project.githubLink != null
+                  ? InkWell(
+                      onTap: openGithubLink,
+                      child: Image.asset(
+                        'images/github.png',
+                        width: 100,
+                        height: 100,
+                      ))
+                  : Container(),
+              _project.appleAppStoreLink != null
+                  ? InkWell(
+                      onTap: openAppleAppStoreLink,
+                      child: Image.asset(
+                        'images/apple_app_store.png',
+                        width: 200,
+                        height: 100,
+                      ))
+                  : Container(),
+              _project.googlePlayStoreLink != null
+                  ? InkWell(
+                      onTap: openGooglePlayStoreLink,
+                      child: Image.asset(
+                        'images/google_play_store_badge.png',
+                        width: 200,
+                        height: 100,
+                      ))
+                  : Container(),
+            ],
+          ),
         ),
       ),
     );
   }
-
-
 }
