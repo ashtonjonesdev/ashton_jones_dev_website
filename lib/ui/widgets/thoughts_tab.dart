@@ -1,9 +1,9 @@
-import 'package:ashton_jones_dev_website/core/data/model/medium_articles_data.dart';
+import 'package:ashton_jones_dev_website/core/data/medium_articles_data.dart';
 import 'package:ashton_jones_dev_website/core/utils/ComputerProgrammerController.dart';
 import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
 import 'package:ashton_jones_dev_website/core/utils/WritingPencilController.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
-import 'package:ashton_jones_dev_website/ui/widgets/medium_article_widget.dart';
+import 'package:ashton_jones_dev_website/ui/widgets/article_widget.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/type_writer_text.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +17,6 @@ class ThoughtsTab extends StatefulWidget {
 }
 
 class _ThoughtsTabState extends State<ThoughtsTab> {
-  bool _switchValueTechnicalWriting = true;
-  bool _switchValuePersonalWriting = true;
 
   String _typewriterText = 'I am a storyteller';
 
@@ -65,39 +63,6 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
               },
             ),
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: [Text('Technical writing'), Switch(value: _switchValueTechnicalWriting, onChanged: (value) {
-          //     setState(() {
-          //       _switchValueTechnicalWriting = value;
-          //     });
-          //   })],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: [Text('Personal writing'), Switch(value: _switchValuePersonalWriting, onChanged: (value) {
-          //     setState(() {
-          //       _switchValuePersonalWriting = value;
-          //     });
-          //   })],
-          // ),
-      // GridView.builder(
-      //       physics: NeverScrollableScrollPhysics(),
-      //       shrinkWrap: true,
-      //       itemCount: mediumArticles.length,
-      //             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //               crossAxisSpacing: 10,
-      //                 mainAxisSpacing: 20,
-      //                 crossAxisCount: 2),
-      //             itemBuilder: (BuildContext context, int index) {
-      //               return Padding(
-      //                 padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 48),
-      //                 child: MediumArticleWidget(mediumArticles[index]),
-      //               );
-      //             },
-      //           ),
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
@@ -105,7 +70,7 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 48),
-                child: MediumArticleWidget(mediumArticles[index]),
+                child: ArticleWidget(mediumArticles[index]),
               );
             },
           )

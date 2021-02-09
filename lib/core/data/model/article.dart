@@ -5,7 +5,7 @@ enum ArticleType {
   PERSONAL
 }
 
-class MediumArticle {
+class Article {
 
   String title;
   String subtitle;
@@ -14,6 +14,6 @@ class MediumArticle {
   String datePublished;
   ArticleType articleType;
 
-  MediumArticle({@required this.title, this.subtitle, @required this.imageResource, @required this.link,
-    @required this.datePublished, @required this.articleType});
+  Article({@required this.title, this.subtitle, @required this.imageResource, @required this.link,
+    @required this.datePublished, this.articleType});
 }

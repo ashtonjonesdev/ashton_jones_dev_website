@@ -353,6 +353,8 @@ class _HomeState extends State<Home> {
           style: Theme.of(context).textTheme.headline6,
         ),
         leading: IconButton(
+          hoverColor: kPrimaryColorLight,
+          splashRadius: 24,
           icon: Icon(
             Icons.waves_rounded,
             color: Colors.black,
@@ -364,6 +366,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         actions: [
           FlatButton.icon(
+            hoverColor: kPrimaryColorLight,
             icon: Icon(Icons.mail),
             label: Text('Contact me',
                 style: Theme.of(context)
