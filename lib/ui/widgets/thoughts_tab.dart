@@ -30,7 +30,7 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
             child: PlayAnimation<double>(
               duration: 400.milliseconds,
               tween: 0.0.tweenTo(80.0),

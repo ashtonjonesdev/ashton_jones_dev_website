@@ -1,4 +1,5 @@
 import 'package:ashton_jones_dev_website/core/data/model/project.dart';
+import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class ProjectWidget extends StatelessWidget {
       elevation: 16,
       child: Container(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: ScreenSize.isSmallScreen(context) ? EdgeInsets.all(8.0) : EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

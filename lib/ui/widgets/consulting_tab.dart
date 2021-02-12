@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:ashton_jones_dev_website/core/utils/ComputerProgrammerController.dart';
+import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:ashton_jones_dev_website/ui/widgets/type_writer_text.dart';
 import 'package:flare_flutter/flare_actor.dart';
@@ -132,14 +133,14 @@ class _ConsultingTabState extends State<ConsultingTab> {
       child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 70),
+            padding: ScreenSize.isSmallScreen(context) ? EdgeInsets.symmetric(vertical: 16, horizontal: 16) : EdgeInsets.symmetric(vertical: 48, horizontal: 200),
             child: Material(
               borderRadius: BorderRadius.circular(16),
               elevation: 16,
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                     child: PlayAnimation<double>(
                       duration: 400.milliseconds,
                       tween: 0.0.tweenTo(80.0),
@@ -173,7 +174,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
                     child: Container(
                         height: 200,
                         padding: const EdgeInsets.only(left: 30.0, right:30.0),
@@ -258,7 +259,7 @@ class _ConsultingTabState extends State<ConsultingTab> {
                   ),
                   SizedBox(height: 10.0),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
+                    padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
                     child: Material(
                       borderRadius: BorderRadius.circular(30.0),
                       color: kPrimaryColor,
