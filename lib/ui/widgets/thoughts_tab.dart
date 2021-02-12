@@ -69,7 +69,7 @@ class _ThoughtsTabState extends State<ThoughtsTab> {
             itemCount: mediumArticles.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 48),
+                padding: ScreenSize.isSmallScreen(context) ?  EdgeInsets.symmetric(horizontal: 16, vertical: 16) : EdgeInsets.symmetric(horizontal: 48, vertical: 48),
                 child: ArticleWidget(mediumArticles[index]),
               );
             },

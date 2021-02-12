@@ -43,11 +43,9 @@ class _ArticleWidgetState extends State<ArticleWidget> {
         elevation: 16,
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 24, horizontal: 24),
-          child: Wrap(
-            direction: Axis.vertical,
-            alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            runAlignment: WrapAlignment.center,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(widget._article.title, style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center, softWrap: true,),
               SizedBox(height: 10,),
