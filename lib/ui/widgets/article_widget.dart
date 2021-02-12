@@ -1,4 +1,5 @@
 import 'package:ashton_jones_dev_website/core/data/model/article.dart';
+import 'package:ashton_jones_dev_website/core/utils/ScreenSize.dart';
 import 'package:ashton_jones_dev_website/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
@@ -48,9 +49,9 @@ class _ArticleWidgetState extends State<ArticleWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(widget._article.title, style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center, softWrap: true,),
-              SizedBox(height: 10,),
+              ScreenSize.isSmallScreen(context) ? Container() : SizedBox(height: 10,),
               Image.asset(widget._article.imageResource, height: 300, width: 400,),
-              SizedBox(height: 10,),
+              ScreenSize.isSmallScreen(context) ? Container() : SizedBox(height: 10,),
               widget._article.subtitle != null ? Text(widget._article.subtitle, textAlign: TextAlign.center, softWrap: true, style: Theme.of(context).textTheme.caption.copyWith(fontStyle: FontStyle.italic, color: kPrimaryColorLight),) : Container(width: 0, height: 0,),
               SizedBox(height: 10,),
               Row(

@@ -38,31 +38,33 @@ class _ArticleWidgetState extends State<CarouselWidget> {
         }
       },
       onTap: openArticleLink,
-      child: Material(
-        borderRadius: BorderRadius.circular(16),
-        color: _isHovering ? Colors.grey.shade300 : Colors.white,
-        elevation: 16,
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 24, horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(widget._article.title, style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center, softWrap: true,),
-              SizedBox(height: 10,),
-              Expanded(child: Image.asset(widget._article.imageResource, fit: BoxFit.fitHeight,)),
-              SizedBox(height: 10,),
-              widget._article.subtitle != null ? Text(widget._article.subtitle, textAlign: TextAlign.center, softWrap: true, style: Theme.of(context).textTheme.caption.copyWith(fontStyle: FontStyle.italic, color: kPrimaryColorLight),) : Container(width: 0, height: 0,),
-              SizedBox(height: 10,),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.date_range),
-                  Text(widget._article.datePublished),
-                ],
-              ),
-            ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Material(
+          borderRadius: BorderRadius.circular(16),
+          color: _isHovering ? Colors.grey.shade300 : Colors.white,
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(widget._article.title, style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center, softWrap: true,),
+                SizedBox(height: 10,),
+                Expanded(child: Image.asset(widget._article.imageResource, fit: BoxFit.fitHeight,)),
+                SizedBox(height: 10,),
+                widget._article.subtitle != null ? Text(widget._article.subtitle, textAlign: TextAlign.center, softWrap: true, style: Theme.of(context).textTheme.caption.copyWith(fontStyle: FontStyle.italic, color: kPrimaryColorLight),) : Container(width: 0, height: 0,),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.date_range),
+                    Text(widget._article.datePublished),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
