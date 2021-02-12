@@ -68,7 +68,7 @@ class _ProjectsTabState extends State<ProjectsTab> {
               itemCount: projects.length,
               itemBuilder: (context, index) =>
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 56, vertical: 48),
+                    padding: ScreenSize.isSmallScreen(context) ?  EdgeInsets.symmetric(horizontal: 16, vertical: 16) : EdgeInsets.symmetric(horizontal: 56, vertical: 48),
                     child: ProjectWidget(projects[index]),
                   ))
         ],
