@@ -19,6 +19,8 @@ dependencies:
   google_fonts: ^1.1.1
   syncfusion_flutter_charts: ^18.4.35
   carousel_slider: ^3.0.0
+  easy_web_view: ^1.3.1
+
 
 
 
