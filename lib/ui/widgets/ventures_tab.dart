@@ -81,7 +81,7 @@ class _VenturesTabState extends State<VenturesTab> {
           // ),
           Expanded(
             child: EasyWebView(
-              src: 'https://ashtonjones.ck.page/2236a04fdb',
+              src: 'https://ashtonjones.ck.page/104a28c6e1',
               webAllowFullScreen: true,
               onLoaded: () {
                 print(
