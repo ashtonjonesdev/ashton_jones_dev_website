@@ -13,10 +13,10 @@ class VenturesTab extends StatefulWidget {
 }
 
 class _VenturesTabState extends State<VenturesTab> {
-  String convertKitSignUpFormPageSource =
+  String convertKitLandingPagePageSource =
       'https://ashtonjones.ck.page/2236a04fdb';
 
-  static ValueKey convertKitLSignUpFormPageKey = ValueKey('convert_kit');
+  static ValueKey convertKitLandingPagePageKey = ValueKey('convert_kit');
 
   List<CarouselWidget> carouselArticlesWidgets = [
     CarouselWidget(substackArticlesData[0]),
@@ -31,22 +31,20 @@ class _VenturesTabState extends State<VenturesTab> {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Image.asset('images/Insight_Owl_transparent.png'),
-          // SizedBox(
-          //   height: 10,
-          // ),
-          // Text(
-          //   'In Insight Owl, I share lessons learned from my personal experiences and extrapolate knowledge from them in hopes of helping you to think deeply to uncover your truths, and ultimately, know yourself at a deeper level.',
-          //   style: Theme.of(context)
-          //       .textTheme
-          //       .bodyText1
-          //       .copyWith(fontWeight: FontWeight.bold),
-          //   textAlign: TextAlign.center,
-          // ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          Text(
+            'Insight Owl',
+            style: Theme.of(context)
+                .textTheme
+                .headline3
+                .copyWith(fontWeight: FontWeight.bold, color: Colors.grey.shade700),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 10,
+          ),
           // Text(
           //   'I publish a series each month that focuses on a certain topic.',
           //   style: Theme.of(context).textTheme.bodyText1,
@@ -82,13 +80,12 @@ class _VenturesTabState extends State<VenturesTab> {
           Expanded(
             child: EasyWebView(
               src: 'https://ashtonjones.ck.page/104a28c6e1',
-              webAllowFullScreen: true,
               onLoaded: () {
                 print(
-                    '$convertKitLSignUpFormPageKey: Loaded: $convertKitSignUpFormPageSource');
+                    '$convertKitLandingPagePageKey: Loaded: $convertKitLandingPagePageSource');
               },
             ),
-          )
+          ),
         ],
       ),
     );

@@ -387,8 +387,8 @@ class AboutTab extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16)),
               color: kPrimaryColorLight,
               onPressed: () {
-                html.window.open('https://insightowl.substack.com/welcome',
-                    'OpenSubstackPublication');
+                html.window.open('https://insightowl.info',
+                    'OpenInsightOwlLandingPage');
               },
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
