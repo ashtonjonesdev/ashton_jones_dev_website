@@ -80,6 +80,7 @@ class _VenturesTabState extends State<VenturesTab> {
           Expanded(
             child: EasyWebView(
               src: 'https://ashtonjones.ck.page/104a28c6e1',
+              webAllowFullScreen: false,
               onLoaded: () {
                 print(
                     '$convertKitLandingPagePageKey: Loaded: $convertKitLandingPagePageSource');
